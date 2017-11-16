@@ -55,7 +55,7 @@ testResource := {
 
 lazy val generateEFO = taskKey[Unit]("Generate EFO dictionary")
 generateEFO := {
-	"rdfparse http://www.ebi.ac.uk/efo/efo.owl" #> file("/tmp/xxxyyyzzz.ttl") #&&
+	"rdfparse https://www.ebi.ac.uk/efo/efo.owl" #> file("/tmp/xxxyyyzzz.ttl") #&&
 	"arq --data=/tmp/xxxyyyzzz.ttl --query=sparql/efoDPh.rq --results=TSV" #|
 	"bin/efoDPh.rb 2" #>
 	file("automata/efoDPh.mwt") !
