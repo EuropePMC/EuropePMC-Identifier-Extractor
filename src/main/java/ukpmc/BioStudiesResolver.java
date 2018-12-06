@@ -9,9 +9,7 @@ import java.net.URLEncoder;
 
 import ukpmc.scala.Resolvable;
 
-public class NcbiResolver extends Resolver implements Resolvable {
-
-   private final String HOST = "eutils.ncbi.nlm.nih.gov";
+public class BioStudiesResolver extends Resolver implements Resolvable {
 
    public boolean isValid(String domain, String accno) {
        return isAccValid(domain, accno);
@@ -23,13 +21,13 @@ public class NcbiResolver extends Resolver implements Resolvable {
 	 boolean ret=true;
 	 BufferedReader in = null;
      try{
-       String query = "entrez/eutils/esearch.fcgi?db=" + domain + "&term=" +  URLEncoder.encode(accno,"UTF-8");
-       URL url = toURL(query, HOST);
+       String query = "https://www.ebi.ac.uk/biostudies/api/v1/search?query=accession:" +  URLEncoder.encode(accno,"UTF-8");
+       URL url = new URL(query);
        in = new BufferedReader(new InputStreamReader(url.openStream()));
        String line;
        while ((line = in.readLine()) != null) {
          // TODO make the check more robust
-	     if (line.contains("<Count>0</Count>")) {
+	     if (line.contains("\"totalHits\":0")) {
 	    	 ret=false;
 	     }
        }
@@ -48,9 +46,9 @@ public class NcbiResolver extends Resolver implements Resolvable {
      }
      
      if (ret) {
-     	 System.err.println(String.format("NCBI validation : Accession Number %s for database %s is VALID", accno, domain));
+     	 System.err.println(String.format("BioStudies validation : Accession Number %s for database %s is VALID", accno, domain));
       }else {
-     	 System.err.println(String.format("NCBI validation : Accession Number %s for database %s is NOT VALID", accno, domain));
+     	 System.err.println(String.format("BioStudies validation : Accession Number %s for database %s is NOT VALID", accno, domain));
       }
      
      return ret;

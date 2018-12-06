@@ -9,38 +9,37 @@ import java.util.Properties;
 import java.net.MalformedURLException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import ukpmc.scala.Resolvable;
 
 public class DoiResolver extends Resolver implements Resolvable {
    private final String HOST;
-   private final int PORT;
    private static Properties prop = new Properties();
    private static Map<String, String> BlacklistDoiPrefix = new HashMap<>();
 
    public DoiResolver() {
-      HOST = "api.datacite.org";
+      HOST = "api.datacite.org/works/";
       // example: https://api.datacite.org/works/10.5061/dryad.pk045
-      PORT = -1;
    }
 
    public boolean isValid(String sem_type, String doi) {
+	  boolean ret=false;
       if (BlacklistDoiPrefix.containsKey(prefixDOI(doi))) {
-         return false;
+    	  ret=false;
       } else if ("10.2210/".equals(doi.substring(0, 8))) { // exception rule for PDB data center
-         return true;
-      } else return isDOIValid("doi", doi);
-   }
-
-   private URL toURL(String doi) {
-      try {
-        String path;
-        path = "/works/" + doi.replaceAll("#", "%23").replaceAll("\\[", "%5B") .replaceAll("\\]", "%5D");
-        URL url = new URL("https", HOST, PORT, path);
-        return url;
-      } catch (MalformedURLException e) {
-        throw new IllegalArgumentException();
+         ret= true;
+      } else {
+    	  ret = isDOIValid("doi", doi);
       }
+      
+      if (ret) {
+     	 System.err.println(String.format("Datacite validation : Accession Number %s for database doi is VALID", doi));
+      }else {
+     	 System.err.println(String.format("Datacite validation : Accession Number %s for database doi is NOT VALID", doi));
+      }
+      
+      return ret;
    }
 
    /**
@@ -54,17 +53,18 @@ public class DoiResolver extends Resolver implements Resolvable {
    }
 
    private boolean isDOIValid(String domain, String doi) {
+	  boolean ret=false;
       try {
-         URL url = toURL(doi);
+         URL url = toURL(URLEncoder.encode(doi,"UTF-8"), HOST);
          HttpURLConnection connection = (HttpURLConnection) url.openConnection();
          String response = connection.getResponseMessage();
          connection.disconnect();
-         return response.equals("OK");
-      } catch (MalformedURLException e) {
-         throw new IllegalArgumentException();
-      } catch (IOException e) {
-         throw new RuntimeException(e);
-      }
+         ret=response.equals("OK");
+      } catch (Exception e) {
+    	  ret=false;
+      } 
+      
+      return ret;
    }
 
    private static void loadDOIPrefix() throws IOException {
@@ -87,10 +87,11 @@ public class DoiResolver extends Resolver implements Resolvable {
       reader.close();
    }
 
-   static {
-      try {
-         loadDOIPrefix();
-      } catch (IOException e) {
+  static {
+	   try {
+        loadDOIPrefix();
+      } catch (Exception e) {
+         System.err.println("Error loading DOI blacklist file");
          e.printStackTrace();
       }
    }

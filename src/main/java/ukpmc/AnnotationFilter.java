@@ -47,6 +47,7 @@ public class AnnotationFilter implements Service {
    private static Resolver dr = new DoiResolver();
    private static Resolver ar = new AccResolver();
    private static Resolver nr = new NcbiResolver();
+   private static Resolver bioStudiesr = new BioStudiesResolver();
 
    protected static Dfa dfa_boundary;
    private static Dfa dfa_plain;
@@ -276,6 +277,8 @@ public class AnnotationFilter implements Service {
          return nr.isValid("snp", id);
       } else if ("gca".equals(db)) {
           return ar.isValid("genome_assembly", id);
+      } else if ("biostudies".equalsIgnoreCase(db)) {
+          return bioStudiesr.isValid(domain, id);
       } else {
          id = ar.normalizeID(db, id);
          return ar.isValid(domain, id);
