@@ -65,7 +65,11 @@ public class AccessionNumbersTest {
 
 	@Test
 	public void testOnlineValidationCath() {
-		assertTrue("Cath db validation is missing", false);
+		testAccessionNumberOnlineValidation("cath","cath","3.20.20.150",true);
+		testAccessionNumberOnlineValidation("cath","cath","2.60.120.10",true);
+		testAccessionNumberOnlineValidation("cath","cath","3.40.140.10",true);
+		testAccessionNumberOnlineValidation("cath","cath","0.00.000.00",false);
+		//assertTrue("Cath db validation is missing", false);
 	}
 	
 	@Test
@@ -189,11 +193,11 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationMint() {
-		assertTrue("Mint On line validation not implemented even if it should be (onlineWithContext in dictionary)",false);
-		testAccessionNumberOnlineValidation("mint","mint","IM-9",true);   
-		testAccessionNumberOnlineValidation("mint","mint","IM-25676",true);
+		testAccessionNumberOnlineValidation("mint","mint","MINT-7905142",true);
 		testAccessionNumberOnlineValidation("mint","mint","MINT-0000",false);
-		testAccessionNumberOnlineValidation("mint","mint","EBI-00000000",false);
+		testAccessionNumberOnlineValidation("mint","mint","IM-25676",true);//false positive to fix
+		testAccessionNumberOnlineValidation("mint","mint","IM-9",true);   //false positive to fix
+		//assertTrue("Mint On line validation not implemented even if it should be (onlineWithContext in dictionary)",false);
 	}
 	
 	@Test
@@ -279,8 +283,8 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("omim","omim","000000",false);   //http://europepmc.org/articles/PMC6247938
 		testAccessionNumberOnlineValidation("omim","omim","103580",true);
 		testAccessionNumberOnlineValidation("omim","omim","174800",true);
-		testAccessionNumberOnlineValidation("omim","omim","980374",true);   // false positive to fix
 		testAccessionNumberOnlineValidation("omim","omim","795043",true);  // false positive to fix
+		testAccessionNumberOnlineValidation("omim","omim","980374",true);   // false positive to fix
 		testAccessionNumberOnlineValidation("omim","omim","980374",true); // false positive to fix
 		testAccessionNumberOnlineValidation("omim","omim","163219",true); // false positive to fix
 	}

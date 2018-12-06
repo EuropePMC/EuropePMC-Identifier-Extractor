@@ -12,7 +12,7 @@ public abstract class Resolver implements Resolvable {
     public String normalizeID(String db, String id) {
         int dotIndex;
         dotIndex = id.indexOf(".");
-        if (dotIndex != -1 && !"doi".equals(db)) id = id.substring(0, dotIndex);
+        if (dotIndex != -1 && (!"doi".equals(db)) && (!"cath".equals(db))) id = id.substring(0, dotIndex);
         if (id.endsWith(")")) id = id.substring(0, id.length() - 1);
         return id.toUpperCase();
     }

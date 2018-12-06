@@ -29,7 +29,6 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
 	private final String CATH_HOST_SUPER_FAMILY = "http://www.cathdb.info/version/v4_2_0/api/rest/superfamily/";
 	private final String CATH_HOST_DOMAIN_FAMILY = "http://www.cathdb.info/version/v4_2_0/api/rest/domain_summary/";
 	private final String MINT_HOST = "http://www.ebi.ac.uk/Tools/webservices/psicquic/mint/webservices/current/search/query/";
-	private final String EBI_HOST = "http://www.ebi.ac.uk/ebisearch/ws/rest/";
 	private final String EBI_HOST_SHORT = "ebisearch/ws/rest/";
   
 	public boolean isValid(String domain, String accno) {
@@ -38,10 +37,10 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
        try {
     	   if(domain.matches("cath|mint")){
     		   fixForPKIXError();
-   			return isOtherAccValid(domain, accno);
+    		   ret = isOtherAccValid(domain, accno);
+    	   } else { 
+    		   ret = isAccValid(domain, accno);
     	   }
-   			else 
-   			return isAccValid(domain, accno);
        }catch(Exception e) {
 		   ret=false;
 	   }
@@ -57,18 +56,19 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
          accno = extractNumbers(accno);
      }
     
-     String query = "";
-		if(domain.equalsIgnoreCase("biomodels")) {
-			query = EBI_HOST_SHORT + domain + "?query="+ URLEncoder.encode("id:\"" + accno + "\" OR submissionid:\"" + accno + "\"","UTF-8");
-		}if(domain.equalsIgnoreCase("omim")) {
-			query = EBI_HOST_SHORT + domain + "?query="+ URLEncoder.encode("id:\"" + accno ,"UTF-8");
-		} else {			
-			query = EBI_HOST_SHORT + domain + "?query=" + URLEncoder.encode("acc:\"" + accno + "\"%20OR%20id:\"" + accno + "\"","UTF-8");
-		}
+    String query = "";
+	
 		
      BufferedReader in=null;
      try {
-        URL url = toURL(query, HOST);
+       if(domain.equalsIgnoreCase("biomodels")) {
+    		 query = EBI_HOST_SHORT + domain + "?query="+ URLEncoder.encode("id:\"" + accno + "\" OR submissionid:\"" + accno + "\"","UTF-8");
+       } else if(domain.equalsIgnoreCase("omim")) {
+    		 query = EBI_HOST_SHORT + domain + "?query="+ URLEncoder.encode("id:\"" + accno + "\"" ,"UTF-8");
+       } else {			
+    		 query = EBI_HOST_SHORT + domain + "?query=" + URLEncoder.encode("acc:\"" + accno + "\" OR id:\"" + accno + "\"","UTF-8");
+       }
+       URL url = toURL(query, HOST);
        in = new BufferedReader(new InputStreamReader(url.openStream()));
        String line;
        while ((line = in.readLine()) != null) {
@@ -105,8 +105,6 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
 		try {
 			if(domain.equalsIgnoreCase("cath")) {
 				url = accno.contains(".") ? new URL(CATH_HOST_SUPER_FAMILY+accno) : new URL(CATH_HOST_DOMAIN_FAMILY+accno);
-			} else if(domain.equalsIgnoreCase("proteinatlas")) {
-				url = accno.toUpperCase().contains("ENSG") ? new URL(HPA_ENSG_HOST+accno+".xml") :  new URL(HPA_HOST.replace("&", accno));				
 			} else if(domain.equalsIgnoreCase("mint")) {
 				url = new URL(MINT_HOST+accno);
 			} 
@@ -135,6 +133,7 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
 					}
 				} catch (IOException e) {
 					System.err.println(e);
+					isOtherValid = false;
 				}
 			} else {
 				isOtherValid = false;
