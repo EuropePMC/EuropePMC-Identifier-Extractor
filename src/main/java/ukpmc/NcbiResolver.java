@@ -28,7 +28,7 @@ public class NcbiResolver extends Resolver implements Resolvable {
        in = new BufferedReader(new InputStreamReader(url.openStream()));
        String line;
        while ((line = in.readLine()) != null) {
-         // TODO make the check more robust
+        
 	     if (line.contains("<Count>0</Count>")) {
 	    	 ret=false;
 	     }

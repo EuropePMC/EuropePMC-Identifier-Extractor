@@ -48,6 +48,9 @@ public class AnnotationFilter implements Service {
    private static Resolver ar = new AccResolver();
    private static Resolver nr = new NcbiResolver();
    private static Resolver bioStudiesr = new BioStudiesResolver();
+   private static Resolver hpar = new HpaResolver();
+   private static Resolver responseCoder = new ResponseCodeResolver();
+   private static Resolver hipscir = new HipsciResolver();
 
    protected static Dfa dfa_boundary;
    private static Dfa dfa_plain;
@@ -275,14 +278,24 @@ public class AnnotationFilter implements Service {
             return nr.isValid("nucleotide", id);
       } else if ("refsnp".equals(db)) {
          return nr.isValid("snp", id);
+      } else if ("eva".equals(db)) {
+          return nr.isValid("snp", id);
       } else if ("gca".equals(db)) {
           return ar.isValid("genome_assembly", id);
       } else if ("biostudies".equalsIgnoreCase(db)) {
           return bioStudiesr.isValid(domain, id);
+      } else if ("hpa".equalsIgnoreCase(db)) {
+          return hpar.isValid("hpa", id);
+      } else if (db.matches("ebisc|rrid|empiar|nct")) {
+          return responseCoder.isValid(db, id);
+      } else if ("hipsci".equalsIgnoreCase(db)) {
+          return hipscir.isValid(db, id);
       } else {
          id = ar.normalizeID(db, id);
          return ar.isValid(domain, id);
       }
+      
+      
    }
 
    static {

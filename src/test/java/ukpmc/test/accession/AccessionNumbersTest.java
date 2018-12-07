@@ -8,8 +8,10 @@ import org.junit.Test;
 import ukpmc.AccResolver;
 import ukpmc.BioStudiesResolver;
 import ukpmc.DoiResolver;
+import ukpmc.HipsciResolver;
+import ukpmc.HpaResolver;
 import ukpmc.NcbiResolver;
-import ukpmc.Resolver;
+import ukpmc.ResponseCodeResolver;
 
 public class AccessionNumbersTest {
 	
@@ -17,6 +19,9 @@ public class AccessionNumbersTest {
 	private NcbiResolver nr = new NcbiResolver();
 	private DoiResolver dr = new DoiResolver();
 	private BioStudiesResolver bioStudiesr = new BioStudiesResolver();
+	private HpaResolver hpar = new HpaResolver();
+	private ResponseCodeResolver responseCoder= new ResponseCodeResolver();
+	private HipsciResolver hipscir = new HipsciResolver();
 	
 	@Test
 	public void testOnlineValidationPDBe() {
@@ -125,7 +130,10 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationEmpiar() {
-		assertTrue("No validation for Empiar", false);
+		testAccessionNumberOnlineValidationResponseCode("empiar","empiar","EMPIAR-10045",true);
+		testAccessionNumberOnlineValidationResponseCode("empiar","empiar","EMPIAR-10090",true);
+		testAccessionNumberOnlineValidationResponseCode("empiar","empiar","EMPIAR-10063",true);
+		testAccessionNumberOnlineValidationResponseCode("empiar","empiar","EMPIAR-00000",false);
 	}
 	
 	@Test
@@ -146,10 +154,10 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationEva() {
-		testAccessionNumberOnlineValidation("eva","dgva","rs848",true); //false positive to fix
-		testAccessionNumberOnlineValidation("eva","dgva","rs7412",true); //false positive to fix
-		testAccessionNumberOnlineValidation("eva","dgva","rs622",true); //false positive to fix
-		
+		testAccessionNumberOnlineValidationNcbi("eva","snp","ss1",true);
+		testAccessionNumberOnlineValidationNcbi("eva","snp","rs848",true);
+		testAccessionNumberOnlineValidationNcbi("eva","snp","rs7412",true); 
+		testAccessionNumberOnlineValidationNcbi("eva","snp","ss0",false);
 	}
 	
 	@Test
@@ -157,7 +165,6 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("go","go","GO:0015031",true); 
 		testAccessionNumberOnlineValidation("go","go","GO:0005524",true);
 		testAccessionNumberOnlineValidation("go","go","GO:0000000",false);
-		
 	}
 	
 	@Test
@@ -171,10 +178,11 @@ public class AccessionNumbersTest {
 	//TO CHANGE with external
 	@Test
 	public void testOnlineValidationHpa() {
-		assertTrue("Hpa On line validation not implemented even if it should be (online in dictionary)",false);
-		testAccessionNumberOnlineValidation("hpa","proteinatlas","HPA037646",true);   
-		testAccessionNumberOnlineValidation("hpa","proteinatlas","HPA000000",false);
-		testAccessionNumberOnlineValidation("hpa","proteinatlas","CAB000000",false);
+		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA007415",true);
+		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA001893",true);   
+		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA037646",true);   
+		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA000000",false);
+		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","CAB000000",false);
 		
 	}
 	
@@ -214,10 +222,11 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("metabolights","metabolights","MTBLS000",false);
 	}
 	
+	/**
 	@Test
 	public void testOnlineValidationEmma() {
 		assertTrue("Emma On line validation not implemented because it is context only in dictionary. Should we implement it?",false);
-	}
+	}*/
 	
 	@Test
 	public void testOnlineValidationPfam() {
@@ -269,12 +278,18 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationEbisc() {
-		assertTrue("Ebisc On line validation not implemented because it is context only in dictionary. Should we implement it?",false);
+		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","STBCi044-A",true);
+		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","EURACi000-A",false);
+		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","HIHCNi002-A",true); //false positive to fix
+		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","EURACi004-A",true); //false positive to fix
 	}
 	
 	@Test
 	public void testOnlineValidationHipsci() {
-		assertTrue("Hipsci On line validation not implemented because it is context only in dictionary. Should we implement it?",false);
+		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0114i-eipl_1",true);
+		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0713i-virz_2",true);
+		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0713i-darw_1",true);
+		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0000i-eipl_0",false);
 	}
 	 
 	@Test
@@ -319,7 +334,10 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationRrid() {	
-		assertTrue("Rrid On line validation not implemented because it is no valid in dictionary. Should we implement it?",false);
+		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:SCR_002798",true);
+		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:AB_2532057",true);
+		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:SCR_002010",true);
+		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:SCR_000000",false);
 		
 	}
 	
@@ -355,7 +373,10 @@ public class AccessionNumbersTest {
 
 	@Test
 	public void testOnlineValidationNct() {	
-		assertTrue("Nct On line validation not implemented because it is context only in dictionary. Should we implement it?",false);
+		testAccessionNumberOnlineValidationResponseCode("nct","nct","NCT01177111",true);
+		testAccessionNumberOnlineValidationResponseCode("nct","nct","NCT00001372",true);
+		testAccessionNumberOnlineValidationResponseCode("nct","nct","NCT02041533",true);
+		testAccessionNumberOnlineValidationResponseCode("nct","nct","NCT00000000",false);
 	}
 
 
@@ -392,6 +413,33 @@ public class AccessionNumbersTest {
 			assertTrue(String.format("Accession number %s of domain %s is NOT valid!", id, domain), bioStudiesr.isValid(domain, id));
 		}else {
 			assertFalse(String.format("Accession number %s of domain %s is valid!", id, domain), bioStudiesr.isValid(domain, id));
+		}
+		
+	}
+    
+    private void testAccessionNumberOnlineValidationHpa(String db, String domain, String id, boolean outcomeExpected) {
+    	if (outcomeExpected) {
+			assertTrue(String.format("Accession number %s of domain %s is NOT valid!", id, domain), hpar.isValid(domain, id));
+		}else {
+			assertFalse(String.format("Accession number %s of domain %s is valid!", id, domain), hpar.isValid(domain, id));
+		}
+		
+	}
+    
+    private void testAccessionNumberOnlineValidationHipsci(String db, String domain, String id, boolean outcomeExpected) {
+    	if (outcomeExpected) {
+			assertTrue(String.format("Accession number %s of domain %s is NOT valid!", id, domain), hipscir.isValid(domain, id));
+		}else {
+			assertFalse(String.format("Accession number %s of domain %s is valid!", id, domain), hipscir.isValid(domain, id));
+		}
+		
+	}
+    
+    private void testAccessionNumberOnlineValidationResponseCode(String db, String domain, String id, boolean outcomeExpected) {
+    	if (outcomeExpected) {
+			assertTrue(String.format("Accession number %s of domain %s is NOT valid!", id, domain), responseCoder.isValid(domain, id));
+		}else {
+			assertFalse(String.format("Accession number %s of domain %s is valid!", id, domain), responseCoder.isValid(domain, id));
 		}
 		
 	}
