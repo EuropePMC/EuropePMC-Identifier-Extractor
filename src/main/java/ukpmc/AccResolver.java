@@ -16,14 +16,12 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 
 import ukpmc.scala.Resolvable;
 
 public class AccResolver extends Resolver implements Resolvable {
 
-private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName());
 
    private final String HOST = "www.ebi.ac.uk";
 	private final String CATH_HOST_SUPER_FAMILY = "http://www.cathdb.info/version/v4_2_0/api/rest/superfamily/";
@@ -109,8 +107,6 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
 				url = new URL(MINT_HOST+accno);
 			} 
 
-			LOGGER.info("******* Accession Number validation URL for " +domain + " =  " + url.getHost() + url.getPath());
-
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/xml");
@@ -137,7 +133,7 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
 				}
 			} else {
 				isOtherValid = false;
-				System.out.println("&&&&&&&&&&&&  Accession Validation = FALSE  BECAUSE Response Code is not 200. Actual respone code is "+ conn.getResponseCode());
+				System.err.println("&&&&&&&&&&&&  Accession Validation = FALSE  BECAUSE Response Code is not 200. Actual respone code is "+ conn.getResponseCode());
 			}
 
 
@@ -147,6 +143,12 @@ private static final Logger LOGGER = Logger.getLogger(AccResolver.class.getName(
 			isOtherValid = false;
 			System.err.println(String.format("External validation: Accession Number %s for database %s is NOT VALID", accno, domain));
 		}
+		
+		 if (isOtherValid) {
+	    	 System.err.println(String.format("OtherDomain validation: Accession Number %s for database %s is VALID", accno, domain));
+	     }else {
+	    	 System.err.println(String.format("OtherDomain validation: Accession Number %s for database %s is NOT VALID", accno, domain));
+	     }
 
 		return isOtherValid;
 	}
