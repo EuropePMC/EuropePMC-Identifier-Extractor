@@ -34,9 +34,9 @@ public class DoiResolver extends Resolver implements Resolvable {
       }
       
       if (ret) {
-     	 System.err.println(String.format("Datacite validation : Accession Number %s for database doi is VALID", doi));
+    	  AccResolver.logOutput(String.format("Datacite validation : Accession Number %s for database doi is VALID", doi));
       }else {
-     	 System.err.println(String.format("Datacite validation : Accession Number %s for database doi is NOT VALID", doi));
+    	  AccResolver.logOutput(String.format("Datacite validation : Accession Number %s for database doi is NOT VALID", doi));
       }
       
       return ret;
@@ -91,8 +91,8 @@ public class DoiResolver extends Resolver implements Resolvable {
 	   try {
         loadDOIPrefix();
       } catch (Exception e) {
-         System.err.println("Error loading DOI blacklist file");
-         e.printStackTrace();
+    	  AccResolver.logOutput("Error loading DOI blacklist file");
+         //e.printStackTrace();
       }
    }
 }

@@ -24,14 +24,14 @@ public class ResponseCodeResolver extends Resolver {
 			ret = conn.getResponseCode() == 200;
 		}catch(Exception e) {
 			ret=false;
-			System.err.println(e.getMessage());
+			AccResolver.logOutput(e.getMessage());
 		}
 		
 		if (ret) {
-	     	 System.err.println(String.format("ResponseCode validation : Accession Number %s for database %s is VALID", accno, domain));
-	      }else {
-	     	 System.err.println(String.format("ResponseCode validation : Accession Number %s for database %s is NOT VALID", accno, domain));
-	      }
+			AccResolver.logOutput(String.format("ResponseCode validation : Accession Number %s for database %s is VALID", accno, domain));
+	    }else {
+	    	AccResolver.logOutput(String.format("ResponseCode validation : Accession Number %s for database %s is NOT VALID", accno, domain));
+	    }
 		
 		return ret;
 	}

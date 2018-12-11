@@ -79,6 +79,8 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationChebi() {
+		
+		testAccessionNumberOnlineValidation("chebi","chebi","CHEBI:23965",true);
 		testAccessionNumberOnlineValidation("chebi","chebi","CHEBI:76227",true);
 		testAccessionNumberOnlineValidation("chebi","chebi","CHEBI:37820",true);
 		testAccessionNumberOnlineValidation("chebi","chebi","CHEBI:3782011111",false);

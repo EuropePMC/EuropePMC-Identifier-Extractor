@@ -21,7 +21,7 @@ public class HipsciResolver extends Resolver{
 	     }
        }
      } catch (Exception e) {
-         System.err.println(e);
+    	 AccResolver.logOutput(e);
          ret=false;
      }finally {
     	 if (in!=null) {
@@ -34,9 +34,9 @@ public class HipsciResolver extends Resolver{
      }
      
      if (ret) {
-     	 System.err.println(String.format("Hipsci validation : Accession Number %s for database %s is VALID", accno, domain));
+    	 AccResolver.logOutput(String.format("Hipsci validation : Accession Number %s for database %s is VALID", accno, domain));
       }else {
-     	 System.err.println(String.format("Hipsci validation : Accession Number %s for database %s is NOT VALID", accno, domain));
+    	  AccResolver.logOutput(String.format("Hipsci validation : Accession Number %s for database %s is NOT VALID", accno, domain));
       }
      
      return ret;

@@ -16,6 +16,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import java.util.Date;
 import java.util.regex.Matcher;
 
 import ukpmc.scala.Resolvable;
@@ -29,6 +30,11 @@ public class AccResolver extends Resolver implements Resolvable {
 	private final String MINT_HOST = "http://www.ebi.ac.uk/Tools/webservices/psicquic/mint/webservices/current/search/query/";
 	private final String EBI_HOST_SHORT = "ebisearch/ws/rest/";
   
+	
+	public static void logOutput(Object error) {
+		System.err.println(new Date().toString()+ " "+error);
+	}
+	
 	public boolean isValid(String domain, String accno) {
 		
 		boolean ret;
@@ -49,7 +55,6 @@ public class AccResolver extends Resolver implements Resolvable {
 	 boolean ret = false;  
      if ("efo".equals(domain)) {
         accno = extractNumbers(accno);
-         // System.err.println(accno);
      } else if ("reactome".equals(domain)) {
          accno = extractNumbers(accno);
      }
@@ -75,7 +80,7 @@ public class AccResolver extends Resolver implements Resolvable {
 	     }
        }
      } catch (Exception e) {
-         System.err.println(e);
+    	 logOutput(e);
          ret=false;
      }finally {
     	 if (in!=null) {
@@ -89,9 +94,9 @@ public class AccResolver extends Resolver implements Resolvable {
      }
      
      if (ret) {
-    	 System.err.println(String.format("EBI validation: Accession Number %s for database %s is VALID", accno, domain));
+    	 logOutput(String.format("EBI validation: Accession Number %s for database %s is VALID", accno, domain));
      }else {
-    	 System.err.println(String.format("EBI validation: Accession Number %s for database %s is NOT VALID", accno, domain));
+    	 logOutput(String.format("EBI validation: Accession Number %s for database %s is NOT VALID", accno, domain));
      }
      
      return ret;
@@ -128,12 +133,12 @@ public class AccResolver extends Resolver implements Resolvable {
 						}
 					}
 				} catch (IOException e) {
-					System.err.println(e);
+					logOutput(e);
 					isOtherValid = false;
 				}
 			} else {
 				isOtherValid = false;
-				System.err.println("&&&&&&&&&&&&  Accession Validation = FALSE  BECAUSE Response Code is not 200. Actual respone code is "+ conn.getResponseCode());
+				logOutput("&&&&&&&&&&&&  Accession Validation = FALSE  BECAUSE Response Code is not 200. Actual respone code is "+ conn.getResponseCode());
 			}
 
 
@@ -141,13 +146,13 @@ public class AccResolver extends Resolver implements Resolvable {
 
 		}catch(Exception e) {
 			isOtherValid = false;
-			System.err.println(String.format("External validation: Accession Number %s for database %s is NOT VALID", accno, domain));
+			logOutput(String.format("External validation: Accession Number %s for database %s is NOT VALID", accno, domain));
 		}
 		
 		 if (isOtherValid) {
-	    	 System.err.println(String.format("OtherDomain validation: Accession Number %s for database %s is VALID", accno, domain));
+			 logOutput(String.format("OtherDomain validation: Accession Number %s for database %s is VALID", accno, domain));
 	     }else {
-	    	 System.err.println(String.format("OtherDomain validation: Accession Number %s for database %s is NOT VALID", accno, domain));
+	    	 logOutput(String.format("OtherDomain validation: Accession Number %s for database %s is NOT VALID", accno, domain));
 	     }
 
 		return isOtherValid;
@@ -190,7 +195,7 @@ public class AccResolver extends Resolver implements Resolvable {
 			HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 			/* End of the fix*/
 		}catch(Exception e) {
-			System.err.println("Failed to ignore the certificate validation  " + e.getMessage());
+			logOutput("Failed to ignore the certificate validation  " + e.getMessage());
 		}
 	}
 }

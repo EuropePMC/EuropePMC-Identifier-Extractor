@@ -29,7 +29,7 @@ public class HpaResolver extends Resolver {
 	      
 		 }catch(Exception e) {
 			 ret=false;
-			 System.err.println(e.getMessage());
+			 AccResolver.logOutput(e.getMessage());
 	    	 if (in!=null) {
 	    		  try {
 					in.close();
@@ -41,9 +41,9 @@ public class HpaResolver extends Resolver {
 	     }
 		 
 		 if (ret) {
-	     	 System.err.println(String.format("Hpa validation : Accession Number %s for database %s is VALID", accno, domain));
+			 AccResolver.logOutput(String.format("Hpa validation : Accession Number %s for database %s is VALID", accno, domain));
 	      }else {
-	     	 System.err.println(String.format("Hpa validation : Accession Number %s for database %s is NOT VALID", accno, domain));
+	    	  AccResolver.logOutput(String.format("Hpa validation : Accession Number %s for database %s is NOT VALID", accno, domain));
 	      }
 		 
 		 return ret;

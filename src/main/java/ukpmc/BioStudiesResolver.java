@@ -32,7 +32,7 @@ public class BioStudiesResolver extends Resolver implements Resolvable {
 	     }
        }
      } catch (Exception e) {
-         System.err.println(e);
+         AccResolver.logOutput(e);
          ret=false;
      }finally {
     	 if (in!=null) {
@@ -46,9 +46,9 @@ public class BioStudiesResolver extends Resolver implements Resolvable {
      }
      
      if (ret) {
-     	 System.err.println(String.format("BioStudies validation : Accession Number %s for database %s is VALID", accno, domain));
+    	 AccResolver.logOutput(String.format("BioStudies validation : Accession Number %s for database %s is VALID", accno, domain));
       }else {
-     	 System.err.println(String.format("BioStudies validation : Accession Number %s for database %s is NOT VALID", accno, domain));
+    	 AccResolver.logOutput(String.format("BioStudies validation : Accession Number %s for database %s is NOT VALID", accno, domain));
       }
      
      return ret;
