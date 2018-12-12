@@ -23,7 +23,7 @@ public class NcbiResolver extends Resolver implements Resolvable {
 	 boolean ret=true;
 	 BufferedReader in = null;
      try{
-       String query = "entrez/eutils/esearch.fcgi?db=" + domain + "&term=" +  URLEncoder.encode(accno,"UTF-8");
+       String query = "entrez/eutils/esearch.fcgi?api_key=59fdb1e97d6c82c703206a006ad284447208&db=" + domain + "&term=" +  URLEncoder.encode(accno,"UTF-8");
        URL url = toURL(query, HOST);
        in = new BufferedReader(new InputStreamReader(url.openStream()));
        String line;
