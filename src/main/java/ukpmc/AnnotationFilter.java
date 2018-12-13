@@ -280,6 +280,8 @@ public class AnnotationFilter implements Service {
          return nr.isValid("snp", id);
       } else if ("eva".equals(db)) {
           return nr.isValid("snp", id);
+      } else if ("geo".equals(db)) {
+          return nr.isValid("gds", id);
       } else if ("gca".equals(db)) {
           return ar.isValid("genome_assembly", id);
       } else if ("biostudies".equalsIgnoreCase(db)) {

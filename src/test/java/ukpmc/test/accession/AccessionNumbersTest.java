@@ -151,6 +151,7 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationEnsembl() {
+		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSSSCT00000014289",false);
 		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSBTAG00000016573",true);
 		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSBTAG00000021523",true);
 		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSBTAG00000000000",false);
@@ -206,11 +207,13 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationMint() {
+		
+		
+		testAccessionNumberOnlineValidation("mint","mint","IM-24178",true);
 		testAccessionNumberOnlineValidation("mint","mint","MINT-7905142",true);
 		testAccessionNumberOnlineValidation("mint","mint","MINT-0000",false);
-		testAccessionNumberOnlineValidation("mint","mint","IM-25676",true);//false positive to fix
-		testAccessionNumberOnlineValidation("mint","mint","IM-9",true);   //false positive to fix
-		//assertTrue("Mint On line validation not implemented even if it should be (onlineWithContext in dictionary)",false);
+		testAccessionNumberOnlineValidation("mint","mint","IM-25676",false);
+		testAccessionNumberOnlineValidation("mint","mint","IM-9",false);  
 	}
 	
 	@Test
@@ -278,7 +281,7 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("uniprot","uniprot","B4FYF5",true);
 		testAccessionNumberOnlineValidation("uniprot","uniprot","E3UJZ2",true);
 		testAccessionNumberOnlineValidation("uniprot","uniprot","P29375",true);
-		testAccessionNumberOnlineValidation("uniprot","uniprot","P53BP2",true); //false positive to fix
+		testAccessionNumberOnlineValidation("uniprot","uniprot","P53BP2",false);
 	}
 	
 	@Test
@@ -300,13 +303,14 @@ public class AccessionNumbersTest {
 	@Test
 	public void testOnlineValidationOmim() {	
 		
-		testAccessionNumberOnlineValidation("omim","omim","000000",false);   //http://europepmc.org/articles/PMC6247938
+		
+		testAccessionNumberOnlineValidation("omim","omim","000000",false);   
 		testAccessionNumberOnlineValidation("omim","omim","103580",true);
 		testAccessionNumberOnlineValidation("omim","omim","174800",true);
-		testAccessionNumberOnlineValidation("omim","omim","795043",true);  // false positive to fix
-		testAccessionNumberOnlineValidation("omim","omim","980374",true);   // false positive to fix
-		testAccessionNumberOnlineValidation("omim","omim","980374",true); // false positive to fix
-		testAccessionNumberOnlineValidation("omim","omim","163219",true); // false positive to fix
+		testAccessionNumberOnlineValidation("omim","omim","795043",false);  
+		testAccessionNumberOnlineValidation("omim","omim","980374",false); 
+		testAccessionNumberOnlineValidation("omim","omim","980374",false); 
+		testAccessionNumberOnlineValidation("omim","omim","163219",false); 
 	}
 	
 	@Test
@@ -383,6 +387,22 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidationResponseCode("nct","nct","NCT02041533",true);
 		testAccessionNumberOnlineValidationResponseCode("nct","nct","NCT00000000",false);
 	}
+	
+	@Test
+	public void testOnlineValidationDbgap() {	
+		testAccessionNumberOnlineValidation("dbgap","dbgap","phs000016",true);
+		testAccessionNumberOnlineValidation("dbgap","dbgap","phs000021",true);
+		testAccessionNumberOnlineValidation("dbgap","dbgap","phs000000",false);
+	}
+	
+	@Test
+	public void testOnlineValidationGeo() {	
+		testAccessionNumberOnlineValidationNcbi("geo","gds","GSE26680",true);
+		testAccessionNumberOnlineValidationNcbi("geo","gds","GSE54825",true);
+		testAccessionNumberOnlineValidationNcbi("geo","gds","GPL3213",true);
+		testAccessionNumberOnlineValidationNcbi("geo","gds","GPL0000",false);
+	}
+	
 
 
 	
