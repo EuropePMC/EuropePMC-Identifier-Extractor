@@ -209,6 +209,7 @@ public class AccessionNumbersTest {
 	public void testOnlineValidationMint() {
 		
 		
+		testAccessionNumberOnlineValidation("mint","mint","IM-26482",false);
 		testAccessionNumberOnlineValidation("mint","mint","IM-24178",true);
 		testAccessionNumberOnlineValidation("mint","mint","MINT-7905142",true);
 		testAccessionNumberOnlineValidation("mint","mint","MINT-0000",false);
