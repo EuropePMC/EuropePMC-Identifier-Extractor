@@ -170,7 +170,9 @@ public class AnnotationFilter implements Service {
 	        String textBeforeEntity = getTextBeforeEntity(yytext, start, m.wsize());
 
             boolean isValid = false;
-	        if ("noval".equals(m.valMethod())) {
+            if(isAccInBlacklist(m.content())) {
+            	isValid = false;
+            }else  if ("noval".equals(m.valMethod())) {
 	            isValid = true;
             } else if ("contextOnly".equals(m.valMethod())) {
                if (isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) isValid = true;
@@ -203,6 +205,24 @@ public class AnnotationFilter implements Service {
       }
    };
 
+   
+   private static boolean isAccInBlacklist(String content) {
+		try {
+			InputStream is = AnnotationFilter.class.getResourceAsStream("resources/uniprot_blacklist.txt");
+		     BufferedReader bf = new BufferedReader(new InputStreamReader(is));
+		     String line;
+		      while ((line = bf.readLine()) != null) {
+		    	  System.out.println(line);
+		    	  if(line.equalsIgnoreCase(content))
+		    		  return true;
+		      }
+		      bf.close();
+			
+		}catch(Exception e) {
+			System.err.println("Error loading uniprot blacklist file: "+ e.getMessage());
+		}
+		return false;
+	}
     /**
      *
      * @param db
