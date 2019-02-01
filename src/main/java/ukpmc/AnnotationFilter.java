@@ -212,14 +212,15 @@ public class AnnotationFilter implements Service {
 		     BufferedReader bf = new BufferedReader(new InputStreamReader(is));
 		     String line;
 		      while ((line = bf.readLine()) != null) {
-		    	  System.out.println(line);
-		    	  if(line.equalsIgnoreCase(content))
+		    	  if(line.equalsIgnoreCase(content)) {
+		    		  AccResolver.logOutput("Accession number "+content+" is not valid because it is in the blacklist");
 		    		  return true;
+		    	  }
 		      }
 		      bf.close();
 			
 		}catch(Exception e) {
-			System.err.println("Error loading uniprot blacklist file: "+ e.getMessage());
+			AccResolver.logOutput("Error loading uniprot blacklist file: "+ e.getMessage());
 		}
 		return false;
 	}

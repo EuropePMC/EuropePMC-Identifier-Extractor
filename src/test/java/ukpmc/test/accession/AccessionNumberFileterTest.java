@@ -1,5 +1,6 @@
 package ukpmc.test.accession;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -34,7 +35,6 @@ import ukpmc.ResponseCodeResolver;
 
 public class AccessionNumberFileterTest {
 
-	private DfaRun dfaRun = new DfaRun(AnnotationFilter.dfa_boundary);
 	private static final String ACCESSION = "automata/acc170731.mwt";
 
 
@@ -48,16 +48,21 @@ public class AccessionNumberFileterTest {
 	private void testAccessionNumberFilter(String input, String output) {
 
 		try {
+			File testFile = new File("text.txt");
 			String patternmapped =  patternMatch(input, ACCESSION);
 			
+			
 			InputStream in = new ByteArrayInputStream(patternmapped.getBytes("UTF-8"));
-			dfaRun.setIn(new ReaderCharSource(in));
-			FileOutputStream out = new FileOutputStream(new File("text.txt"));
-			
+			FileOutputStream out = new FileOutputStream(testFile);
 			PrintStream outpw = new PrintStream(out);
-			dfaRun.filter(outpw);
 			
-			String sent = getFileContent(new FileInputStream("text.txt"));
+			AnnotationFilter annotationFilter = new AnnotationFilter(in,outpw);
+			
+			annotationFilter.run();
+			
+			
+			
+			String sent = getFileContent(new FileInputStream(testFile));
 			System.out.println(sent);
 			
 		} catch (IOException e) {
@@ -86,19 +91,21 @@ public class AccessionNumberFileterTest {
 		return sent;
 	}
 	
-	public String getFileContent( FileInputStream fis ) {
-		StringBuilder sb = new StringBuilder();
-		try {			
-			Reader r = new InputStreamReader(fis, "UTF-8");  //or whatever encoding
-			int ch = r.read();
-			while(ch >= 0) {
-				sb.append(ch);
-				ch = r.read();
-			}
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		} 
-		return sb.toString();
-	}
+	private String getFileContent(FileInputStream file) throws IOException {
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(file, "UTF-8"));
+	    String         line = null;
+	    StringBuilder  stringBuilder = new StringBuilder();
+	    String         ls = System.getProperty("line.separator");
 
+	    try {
+	        while((line = reader.readLine()) != null) {
+	            stringBuilder.append(line);
+	            stringBuilder.append(ls);
+	        }
+
+	        return stringBuilder.toString();
+	    } finally {
+	        reader.close();
+	    }
+	}
 }
