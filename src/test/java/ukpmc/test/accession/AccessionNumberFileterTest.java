@@ -28,21 +28,22 @@ import ukpmc.HipsciResolver;
 import ukpmc.HpaResolver;
 import ukpmc.NcbiResolver;
 import ukpmc.ResponseCodeResolver;
+import static org.junit.Assert.assertTrue;
 
 /*
- *@Jyothi Katuri
+ *@Jyothi Katuri 
  */
 
 public class AccessionNumberFileterTest {
 
-	private static final String ACCESSION = "automata/acc170731.mwt";
+	private static final String ACCESSION = "automata/acc181210.mwt";
 
 
 	@Test
 	public void testOnlineValidationPDBe() {
-		String test =  "<SENT sid=\"1\" pm=\".\"><plain>Recently, protein levels of important glycosylation enzymes, B3GNT8 and MGAT4A, were found decreased in the prefrontal cortex in schizophrenia (12 case–control pairs),33 whereas in our study B3GNT1, B3GNT3 and MGAT1 transcripts were downregulated in schizophrenia cases (Supplementary Table S1). </plain></SENT>";
-		
-		testAccessionNumberFilter(test,"");
+		String input =  "<SENT sid=\"1\" pm=\".\"><plain>Recently, protein levels of important glycosylation enzymes, B3GNT8 and MGAT4A, were found decreased in the prefrontal cortex in schizophrenia (12 case–control pairs),33 whereas in our study B3GNT1, B3GNT3 and MGAT1 transcripts were downregulated in schizophrenia cases (Supplementary Table S1). </plain></SENT>";
+		String output = "<SENT sid=\"1\" pm=\".\"><plain>Recently, protein levels of important glycosylation enzymes, B3GNT8 and MGAT4A, were found decreased in the prefrontal cortex in schizophrenia (12 case–control pairs),33 whereas in our study B3GNT1, B3GNT3 and MGAT1 transcripts were downregulated in schizophrenia cases (Supplementary Table S1). </plain></SENT>";
+		testAccessionNumberFilter(input,output);
 	}
 
 	private void testAccessionNumberFilter(String input, String output) {
@@ -58,18 +59,20 @@ public class AccessionNumberFileterTest {
 			
 			AnnotationFilter annotationFilter = new AnnotationFilter(in,outpw);
 			
-			annotationFilter.run();
-			
-			
+			annotationFilter.run();		
 			
 			String sent = getFileContent(new FileInputStream(testFile));
 			System.out.println(sent);
+			
+			assertTrue("Expected result",output.equalsIgnoreCase(sent));
 			
 		} catch (IOException e) {
 			System.err.println( e);
 		}
 	}
 	
+
+
 	private String patternMatch(String text, String dict) {
 		String  sent =  null;
 		try {
