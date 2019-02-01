@@ -208,7 +208,7 @@ public class AnnotationFilter implements Service {
    
    private static boolean isAccInBlacklist(String content) {
 		try {
-			InputStream is = AnnotationFilter.class.getResourceAsStream("resources/uniprot_blacklist.txt");
+			InputStream is = AnnotationFilter.class.getResourceAsStream("/uniprot_blacklist.txt");
 		     BufferedReader bf = new BufferedReader(new InputStreamReader(is));
 		     String line;
 		      while ((line = bf.readLine()) != null) {
