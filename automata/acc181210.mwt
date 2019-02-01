@@ -139,11 +139,10 @@
   <!-- N rnacentral -->
   <r p1="rnacentral" p2="onlineWithContext" p3="rnacentral" p4="" p5="20000">URS[0-9A-Z]+_[0-9]+</r>
 
-
-  <!-- sprot -->
+   <!-- sprot -->
   <!-- <r p1="uniprot" p2="online" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession|protein)" p5="20000">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([.][0-9]+)?</r> -->
-  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession|protein|trembl|uniprac|uniref|uniprotkb)" p5="20000">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([-][0-9]+)?</r>
-  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession|protein|trembl|uniprac|uniref|uniprotkb)" p5="20000">UPI[A-F0-9]{10}</r>
+  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession(s)?|Locus|GenBank|genome|sequence(s)?|protein|trembl|uniparc|uniref|uniprotkb|Acc.No|Acc. No)" p5="20000">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([-][0-9]+)?</r>
+  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession(s)?|Locus|GenBank|genome|sequence(s)?|protein|trembl|uniparc|uniref|uniprotkb|Acc.No|Acc. No)" p5="20000">UPI[A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9]</r>
 
   <!-- N vectorbase -->
 
