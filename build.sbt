@@ -7,6 +7,11 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 libraryDependencies += "org.specs2" %% "specs2-core" % "3.6.6" % "test"
 libraryDependencies += "org.specs2" %% "specs2-gwt" % "3.6.6" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.12.5" % "test"
+libraryDependencies += "org.javatuples" % "javatuples" % "1.2"
+libraryDependencies += "com.sun.jersey" % "jersey-client" % "1.19.4"
+libraryDependencies += "junit" % "junit" % "4.12" % Test
+libraryDependencies += "org.hamcrest" % "hamcrest-core" % "1.3" % Test
+
 
 scalacOptions in (Compile,doc) := Seq("-groups", "-implicits")
 scalacOptions in Test ++= Seq("-Yrangepos")
