@@ -1,0 +1,137 @@
+<mwt>
+  <template><FUND db="%1" valmethod="%2" domain="%3" context="%4" wsize="%5" negate="%6" abbrcontext="%7">%0</FUND></template>
+  
+  <!-- This file contains following funders -->
+  <!-- Alzheimer’s Society, The Academy of Medical Sciences, British Heart Foundation, Chief Scientist Office, 
+  Diabetes UK, The Dunhill Medical Trust, Marie Curie, Motor Neurone Disease Association, Parkinson's UK,
+  National Centre for the Replacement, Refinement and Reduction of Animals in Research, 
+  Wellcome Trust, World Health Organization, Worldwide Cancer Research, The Wellcome Trust/DBT India Alliance, 
+  Bloodwise
+  -->
+ 
+	<!-- 2018 adding other funder names to the dictionary -->
+	
+	<!-- Alzheimer’s Society/ ALZS -->
+	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer's Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[0-9][0-9]|[0-9][0-9][0-9]</r>
+	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer's Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9][0-9]</r>
+	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer's Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9][0-9]</r>
+	
+	<!-- The Academy of Medical Sciences/ AMS -->
+	<r p1="ams" p2="context" p3="Academy of Medical Sciences" p4="(?i)(Academy of Medical Sciences)" p5="60" p6="" p7="AMS">[a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9]\\[0-9][0-9][0-9][0-9]</r>
+		
+	<!-- British Heart Foundation/ BHF -->
+	<r p1="bhf" p2="context" p3="British Heart Foundation" p4="(?i)(British Heart Foundation (Centre of Research Excellence|Centre of Regenerative Medicine)?)" p5="60" p6="" p7="BHF">[a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="bhf" p2="context" p3="British Heart Foundation" p4="(?i)(British Heart Foundation (Centre of Research Excellence|Centre of Regenerative Medicine)?)" p5="60" p6="" p7="BHF">[a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]\/[0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="bhf" p2="context" p3="British Heart Foundation" p4="(?i)(British Heart Foundation (Centre of Research Excellence|Centre of Regenerative Medicine)?)" p5="60" p6="" p7="BHF">[a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="bhf" p2="context" p3="British Heart Foundation" p4="(?i)(British Heart Foundation (Centre of Research Excellence|Centre of Regenerative Medicine)?)" p5="60" p6="" p7="BHF">[a-zA-z][a-zA-z]\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="bhf" p2="context" p3="British Heart Foundation" p4="(?i)(British Heart Foundation (Centre of Research Excellence|Centre of Regenerative Medicine)?)" p5="60" p6="" p7="BHF">[a-zA-z][a-zA-z]\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9][0-9]</r>
+	
+	<!-- Chief Scientist Office/ CSO -->
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
+	
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
+	
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]/[0-9][0-9][0-9][0-9]</r>
+	
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9][0-9]</r>
+	
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]\/[a-zA-z][0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[a-zA-z][0-9][0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z][0-9][0-9]</r>
+	
+	<!-- Diabetes UK/ DUK -->
+	<r p1="duk" p2="context" p3="Diabetes UK" p4="(?i)(Diabetes UK)" p5="50">[0-9][0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+		
+	<!-- The Dunhill Medical Trust/ DMT -->
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9][0-9]\\[0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9][0-9]\\[0-9][0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9][0-9]\\[0-9][0-9][0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9][0-9]\\[0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9][0-9]\\[0-9][0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9][0-9]\\[0-9][0-9][0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][0-9][0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="dmt" p2="context" p3="The Dunhill Medical Trust" p4="(?i)((The)? Dunhill Medical Trust)" p5="60" p6="" p7="DMT">[a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9]</r>
+		
+	<!-- Marie Curie/ MCCC -->
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]\-[a-zA-z]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z]\-[0-9]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z]\-[0-9][0-9]\-[a-zA-z][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]\-[a-zA-z]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9]\-[0-9][0-9]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][a-zA-z] [0-9][0-9][0-9][0-9]\-[0-9][0-9]</r>	
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">[a-zA-z][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="mccc" p2="context" p3="Marie Curie" p4="(?i)(Marie Curie (Memorial Foundation|Cancer Care)?)" p5="60" p6="(?i)((European Commission|FP7|European Union) Marie Curie|Marie Curie (European Commission|FP7|European Union))">C[0-9][0-9][0-9][0-9][0-9]\/A[0-9][0-9][0-9][0-9][0-9]</r>
+		
+	
+	<!-- Motor Neurone Disease Association/MNDA -->
+	<r p1="mnda" p2="context" p3="Motor Neurone Disease Association" p4="(?i)(Motor Neuron(e)? Disease Association|MND Association)" p5="60" p6="" p7="MNDA">[a-zA-z]+\/[a-zA-z][a-zA-z][a-zA-z][0-9][0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="mnda" p2="context" p3="Motor Neurone Disease Association" p4="(?i)(Motor Neuron(e)? Disease Association|MND Association)" p5="60" p6="" p7="MNDA">[a-zA-z]+\/[a-zA-z][a-zA-z][a-zA-z][0-9][0-9]\/[0-9][0-9][0-9]\-[0-9][0-9][0-9]</r>
+		
+	
+	<!-- National Centre for the Replacement, Refinement and Reduction of Animals in Research/NC3RS -->
+	<r p1="nc3rs" p2="context" p3="National Centre for the Replacement, Refinement and Reduction of Animals in Research" p4="(?i)(National Centre for the Replacement, Refinement and Reduction of Animals in Research|National Centre for the 3Rs)" p5="100" p6="" p7="NC3Rs">[a-zA-z][a-zA-z]\/[a-zA-z][0-9][0-9][0-9][0-9][0-9][0-9]\/[0-9]</r>
+	<r p1="nc3rs" p2="context" p3="National Centre for the Replacement, Refinement and Reduction of Animals in Research" p4="(?i)(National Centre for the Replacement, Refinement and Reduction of Animals in Research|National Centre for the 3Rs)" p5="100" p6="" p7="NC3Rs">[a-zA-z][0-9][0-9][0-9][0-9][0-9][0-9][0-9]\/[0-9]</r>
+	<r p1="nc3rs" p2="context" p3="National Centre for the Replacement, Refinement and Reduction of Animals in Research" p4="(?i)(National Centre for the Replacement, Refinement and Reduction of Animals in Research|National Centre for the 3Rs)" p5="100" p6="" p7="NC3Rs">[a-zA-z][a-zA-z]\/[a-zA-z][0-9][0-9][0-9][0-9][0-9][a-zA-z]\/[0-9]</r>
+	
+	<!-- Parkinson's UK/ DUK -->
+	<r p1="puk" p2="context" p3="Parkinson's UK" p4="(?i)(Parkinson's UK|Parkinsons UK)" p5="50">[a-zA-z]\-[0-9][0-9][0-9][0-9]</r>
+
+	<!-- Wellcome Trust/ WT -->
+	<!-- 19-11-2018: added 99999/A/99/A, added  WT085775/Z/08/Z on 29-11-2018-->
+	<r p1="wt" p2="context" p3="Wellcome Trust" p4="(?i)(Wellcome Trust|Wellcome trust grant)" p5="100">(WT|wt)?(\[)?[0-9][0-9][0-9][0-9][0-9][0-9]/[a-zA-z]/[0-9][0-9]/[a-zA-z]</r>
+	<r p1="wt" p2="context" p3="Wellcome Trust" p4="(?i)(Wellcome Trust|Wellcome trust grant)" p5="100">[0-9][0-9][0-9][0-9][0-9]/[a-zA-z]/[0-9][0-9]/[a-zA-z]</r>
+	<r p1="wt" p2="context" p3="Wellcome Trust" p4="(?i)(Wellcome Trust|Wellcome trust grant)" p5="70">(WT|wt)(GR)?[0-9][0-9][0-9][0-9][0-9][0-9](MA)?</r>
+	<r p1="wt" p2="context" p3="Wellcome Trust" p4="(?i)(Wellcome Trust|Wellcome trust grant)" p5="70">(FC|fc)[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="wt" p2="context" p3="Wellcome Trust" p4="(?i)(Wellcome Trust|Wellcome trust grant)" p5="70">[0-9][1-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9]</r>
+ 	<r p1="wt" p2="context" p3="Wellcome Trust" p4="(?i)(Wellcome Trust|Wellcome trust grant)" p5="70">[0-9][1-9][0-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9][0-9]</r>
+	
+	<!-- World Health Organization/ WHO -->
+	<r p1="who" p2="context" p3="World Health Organization" p4="(?i)(World Health Organization)" p5="60" p6="" p7="WHO">[a-zA-z][0-9][0-9][0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="who" p2="context" p3="World Health Organization" p4="(?i)(World Health Organization)" p5="60" p6="" p7="WHO">[a-zA-z][a-zA-z][a-zA-z]\/[a-zA-z][0-9][0-9][0-9][0-9][0-9]</r>
+	
+	<!-- Worldwide Cancer Research/ AICR -->
+	<r p1="aicr" p2="context" p3="Worldwide Cancer Research" p4="(?i)((Worldwide|World Wide) Cancer Research|Association (for|of) International Cancer Research)" p5="60" p6="" p7="(WCR|WCR/AICR|WWCR|AICR|AICR/WCRF)">[0-9][0-9]\-[0-9][0-9]</r>
+	<r p1="aicr" p2="context" p3="Worldwide Cancer Research" p4="(?i)((Worldwide|World Wide) Cancer Research|Association (for|of) International Cancer Research)" p5="60" p6="" p7="(WCR|WCR/AICR|WWCR|AICR|AICR/WCRF)">[0-9][0-9]\-[0-9][0-9][0-9]</r>
+	<r p1="aicr" p2="context" p3="Worldwide Cancer Research" p4="(?i)((Worldwide|World Wide) Cancer Research|Association (for|of) International Cancer Research)" p5="60" p6="" p7="(WCR|WCR/AICR|WWCR|AICR|AICR/WCRF)">[0-9][0-9]\-[0-9][0-9][0-9][0-9]</r>
+	<r p1="aicr" p2="context" p3="Worldwide Cancer Research" p4="(?i)((Worldwide|World Wide) Cancer Research|Association (for|of) International Cancer Research)" p5="60" p6="" p7="(WCR|WCR/AICR|WWCR|AICR|AICR/WCRF)">(WCR|wcr)[0-9][0-9]\-[0-9][0-9][0-9][0-9]</r>
+	
+	<!-- The Wellcome Trust/DBT India Alliance/ WTDBT -->
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9]</r>
+	
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[0-9][0-9][0-9][0-9][0-9][0-9]\-[a-zA-z]\-[0-9][0-9]\-[a-zA-z]</r>
+	<r p1="wtdbt" p2="context" p3="Wellcome Trust-DBT India Alliance" p4="(?i)(Wellcome-DBT|Wellcome Trust( - |\/| )?DBT India Alliance|Department of Biotechnology Wellcome India Alliance)" p5="60">[a-zA-z][a-zA-z]\/[a-zA-z]\([a-zA-z]\)/[0-9][0-9]\/[0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	
+	<!-- Action on Hearing Loss/ AHL -->
+	<r p1="ahl" p2="context" p3="Action on Hearing Loss" p4="(?i)(Action on Hearing Loss|Action for Hearing Loss|Royal National Institute for Deaf (People)?|Deafness Research UK)" p5="60" p6="" p7="(AOHL|AHL|RNID|DRUK)">[a-zA-z][0-9]</r>
+	<r p1="ahl" p2="context" p3="Action on Hearing Loss" p4="(?i)(Action on Hearing Loss|Action for Hearing Loss|Royal National Institute for Deaf (People)?|Deafness Research UK)" p5="60" p6="" p7="(AOHL|AHL|RNID|DRUK)">[a-zA-z][0-9][0-9]</r>
+	<r p1="ahl" p2="context" p3="Action on Hearing Loss" p4="(?i)(Action on Hearing Loss|Action for Hearing Loss|Royal National Institute for Deaf (People)?|Deafness Research UK)" p5="60" p6="" p7="(AOHL|AHL|RNID|DRUK)">[a-zA-z][a-zA-z][0-9]</r>
+	<r p1="ahl" p2="context" p3="Action on Hearing Loss" p4="(?i)(Action on Hearing Loss|Action for Hearing Loss|Royal National Institute for Deaf (People)?|Deafness Research UK)" p5="60" p6="" p7="(AOHL|AHL|RNID|DRUK)">[a-zA-z][a-zA-z][0-9][0-9]</r>
+	<r p1="ahl" p2="context" p3="Action on Hearing Loss" p4="(?i)(Action on Hearing Loss|Action for Hearing Loss|Royal National Institute for Deaf (People)?|Deafness Research UK)" p5="60" p6="" p7="(AOHL|AHL|RNID|DRUK)">[0-9][0-9][0-9]\:[a-zA-z][a-zA-z][a-zA-z]\:[a-zA-z][a-zA-z]</r>
+	
+	
+  <template>%0</template>
+    <r><FUND[^>]*>(.*</FUND)!:[^>]*></r>
+    <r>="([^"]*)"</r>
+</mwt>
