@@ -160,6 +160,7 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationEva() {
+		testAccessionNumberOnlineValidationNcbi("eva","snp","rs3852144",true);
 		testAccessionNumberOnlineValidationNcbi("eva","snp","ss1",true);
 		testAccessionNumberOnlineValidationNcbi("eva","snp","rs848",true);
 		testAccessionNumberOnlineValidationNcbi("eva","snp","rs7412",true); 
@@ -324,6 +325,7 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationRefSnp() {	
+		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs3852144",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs570877",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1041983",true);

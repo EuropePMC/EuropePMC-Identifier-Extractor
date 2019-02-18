@@ -15,8 +15,9 @@ import java.io.PrintStream;
 
 import java.net.ServerSocket;
 import java.net.URL;
-
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -190,8 +191,12 @@ public class AnnotationFilter implements Service {
                if (isOnlineValid(m.db(), m.content(), m.domain())) isValid = true;
             }
 
-            String secOrSent = runner.clientData.toString();
-            if (isValid && isInValidSection(secOrSent, m.sec())) {
+            String secOrSent="";
+            if (runner.clientData!=null) {
+            	secOrSent = runner.clientData.toString();
+            }
+            
+            if (isValid && isInValidSection(secOrSent, m.sec(), m.db(), m.content())) {
                 String tagged = "<" + m.tagName() +" db=\"" + m.db() + "\" ids=\"" + m.content() +"\">"+ m.content()
                         + "</" + m.tagName() + ">";
                 yytext.replace(start, yytext.length(), tagged);
@@ -263,10 +268,21 @@ public class AnnotationFilter implements Service {
      * @param blacklistSection
      * @return
      */
-   private static boolean isInValidSection(String secOrSent, String blacklistSection) {
-      if (blacklistSection.equals("")) {
+   private static boolean isInValidSection(String secOrSent, String blacklistSectionValues, String db, String accessionNumber) {
+      if (blacklistSectionValues==null || blacklistSectionValues.equals("")) {
           return true;
-      } else return !secOrSent.contains(blacklistSection);
+      } else {
+    	  List<String> blackListSections = Arrays.asList(blacklistSectionValues.split(","));
+    	  List<String> sections = Arrays.asList(secOrSent.split(","));
+    	  
+    	  for (String blackListSection : blackListSections) {
+    		  if (sections.contains(blackListSection)) {
+    			  AccResolver.logOutput("Accession number "+accessionNumber+" for database "+db+" is not valid because it is in one of the forbidden sections : "+secOrSent + " ("+blacklistSectionValues+")");
+    			  return false;
+    		  }
+    	  }
+    	  return true;
+      }
    }
 
     /**
@@ -327,7 +343,7 @@ public class AnnotationFilter implements Service {
          loadPredefinedResults();
 
          Nfa bnfa = new Nfa(Nfa.NOTHING);
-         bnfa // .or(Xml.GoofedElement("SecTag"), procBoundary)
+         bnfa.or(Xml.GoofedElement("SecTag"), procBoundary)
          .or(Xml.GoofedElement("SENT"), procBoundary);
          dfa_boundary = bnfa.compile(DfaRun.UNMATCHED_COPY);
 
