@@ -1,0 +1,40 @@
+<mwt>
+  <template><FUND db="%1" valmethod="%2" domain="%3" context="%4" wsize="%5" negate="%6" abbrcontext="%7">%0</FUND></template>
+
+    <!-- This file contains following funders
+	Multiple Sclerosis Society, Arthritis Research UK, Myrovlytis Trust, Swiss National Science Foundation, BBSRC
+	MSS: 9,99,999
+	MT: 9999
+	ARUk:99999		
+  (BB|bb)/A999999/9
+  BBS/A/A99999999
+  BBS/A/A/99999999  
+	-->
+
+	<!-- Multiple Sclerosis Society/MSS -->
+    <r p1="mss" p2="context" p3="Multiple Sclerosis Society" p4="(?i)(MS Society|Multiple Sclerosis Society( of Great Britain and Northern Ireland)?)" p5="90" p6="(?i)((National|Italian|Swiss|Danish) Multiple Sclerosis Society|Multiple Sclerosis Society of (Canada|Western Australia)|MS Society of Canada|Danish MS Society)">[0-9]|[0-9]\.[0-9]|[0-9][0-9]\.[0-9]</r>
+	<r p1="mss" p2="context" p3="Multiple Sclerosis Society" p4="(?i)(MS Society|Multiple Sclerosis Society( of Great Britain and Northern Ireland)?)" p5="90" p6="(?i)((National|Italian|Swiss|Danish) Multiple Sclerosis Society|Multiple Sclerosis Society of (Canada|Western Australia)|MS Society of Canada|Danish MS Society)">[0-9][0-9]|[0-9][0-9][0-9]|[0-9]\.[0-9]|[0-9][0-9]\.[0-9]</r>
+	<r p1="mss" p2="context" p3="Multiple Sclerosis Society" p4="(?i)(MS Society|Multiple Sclerosis Society( of Great Britain and Northern Ireland)?)" p5="90" p6="(?i)((National|Italian|Swiss|Danish) Multiple Sclerosis Society|Multiple Sclerosis Society of (Canada|Western Australia)|MS Society of Canada|Danish MS Society)">[0-9][0-9][0-9]\/[0-9][0-9]</r>
+
+
+	<!-- Arthritis Research UK/ ARUK / Versus Arthritis -->
+	<r p1="va" p2="context" p3="Versus Arthritis" p4="(?i)(Versus Arthritis|Arthritis Research UK|Arthritis Research Campaign)" p5="60" p6="" p7="ARUK">[0-9][0-9][0-9][0-9][0-9]</r>
+	
+    <!-- Myrovlytis Trust/MT -->
+ 	<r p1="mt" p2="context" p3="Myrovlytis Trust" p4="(?i)(Myrovlytis Trust)" p5="50">[0-9][0-9][0-9][0-9]</r>
+ 	
+ 	<!-- Swiss National Science Foundation/SNSF -->
+ 	<r p1="snsf" p2="context" p3="Swiss National Science Foundation" p4="(?i)(Swiss National Science Foundation|Fonds National Suisse (de la Recherche Scientifique)?|Fondo Nazionale Svizzero (per la Ricerca Scientifica)?|Schweizerischer Nationalfonds)" p5="60" p6="" p7="(SNF|SNSF|FNS)">[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+ 
+  <!-- Biotechnology and Biological Sciences Research Council/ BBSRC -->
+	<r p1="bbsrc" p2="context" p3="Biotechnology and Biological Sciences Research Council" p4="(?i)(Biotechnology and Biological Sciences Research Council)" p5="90" p6="" p7="BBSRC">(BB|bb)/[a-zA-z][0-9][0-9][0-9][0-9][0-9][0-9]/[0-9]</r>
+	<r p1="bbsrc" p2="context" p3="Biotechnology and Biological Sciences Research Council" p4="(?i)(Biotechnology and Biological Sciences Research Council)" p5="90" p6="" p7="BBSRC">(BBS|bbs)\/[a-zA-z]\/[a-zA-z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="bbsrc" p2="context" p3="Biotechnology and Biological Sciences Research Council" p4="(?i)(Biotechnology and Biological Sciences Research Council)" p5="90" p6="" p7="BBSRC">(BBS|bbs)\/[a-zA-z]\/[0-9][0-9][0-9][0-9][0-9]</r>
+	<r p1="bbsrc" p2="context" p3="Biotechnology and Biological Sciences Research Council" p4="(?i)(Biotechnology and Biological Sciences Research Council)" p5="90" p6="" p7="BBSRC">(BBS|bbs)\/[a-zA-z]\/[a-zA-z]\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+	<!--<r p1="bbsrc" p2="context" p3="" p4="(?i)(Biotechnology and Biological Sciences Research Council|BBSRC)" p5="90">[a-zA-z][0-9][0-9][0-9][0-9][0-9]</r>-->
+	
+  
+  <template>%0</template>
+    <r><FUND[^>]*>(.*</FUND)!:[^>]*></r>
+    <r>="([^"]*)"</r>
+</mwt>
