@@ -1,0 +1,203 @@
+<mwt>
+  <template><z:acc db="%1" valmethod="%2" domain="%3" context="%4" wsize="%5" sec="%6">%0</z:acc></template>
+
+  <r p1="Rarrayexpress" p2="noval" p3="" p4="" p5="" p6="REF">ArrayExpress</r>
+  <r p1="Rarrayexpress" p2="noval" p3="" p4="" p5="" p6="REF">Array Express</r>
+
+  <r p1="Rbiomodels" p2="noval" p3="" p4="" p5="" p6="REF">BioModels</r>
+  
+
+  <!-- biosamples -->
+  <r p1="Rbiosamples" p2="noval" p3="" p4="" p5="" p6="REF">[Bb]io[Ss]amples</r>
+   <r p1="Rbiosamples" p2="noval" p3="" p4="" p5="" p6="REF">BioSD|Biosd</r>
+  
+
+  <!-- biostudies -->
+  <r p1="Rbiostudies" p2="noval" p3="" p4="" p5="" p6="REF">BioStudies</r>
+
+<!-- cath --> 
+  <r p1="Rcath" p2="noval" p3="" p4="" p5="" p6="REF">CATH</r>
+  <r p1="Rcath" p2="noval" p3="" p4="" p5="" p6="REF">Cath</r>
+  <r p1="Rcath" p2="noval" p3="" p4="" p5="" p6="REF">CATH Gene3D|Cath Gene3D|cath gene3D</r>
+  <r p1="Rcath" p2="noval" p3="" p4="" p5="" p6="REF">CATH[\-]Gene3D</r>
+  <r p1="Rcath" p2="noval" p3="" p4="" p5="" p6="REF">Cath[\-]Gene3D</r>
+  <r p1="Rcath" p2="noval" p3="" p4="" p5="" p6="REF">C.A.T.H</r>  
+
+
+  <r p1="Rchebi" p2="noval" p3="" p4="" p5="" p6="REF">ChEBI</r>
+  <r p1="Rchebi" p2="noval" p3="" p4="" p5="" p6="REF">Chemical Entities of Biological Interest</r>
+
+  <r p1="Rchembl" p2="noval" p3="" p4="" p5="" p6="REF">ChEMBL</r>
+  <r p1="Rchembl" p2="noval" p3="" p4="" p5="" p6="REF">UniChem</r>
+
+  <!-- complex portal -->
+  <r p1="Rcomplexportal" p2="noval" p3="" p4="" p5="" p6="REF">Complex Portal</r>
+
+  <!-- ebi metagenomics -->
+  <r p1="Rmetagenomics" p2="noval" p3="" p4="" p5="" p6="REF">EBI Metagenomics</r>
+
+  <!-- efo -->
+  <r p1="Refo" p2="noval" p3="" p4="" p5="" p6="REF">Experimental Factor Ontology</r>
+
+  <r p1="Rega" p2="contextOnly" p3="" p4="(?i)(european|genome|phenome|archive)" p5="5000" p6="REF">EGA</r>
+  <r p1="Rega" p2="noval" p3="" p4="" p5="" p6="REF">European Genome\-phenome Archive</r>
+
+  <!-- emdb -->
+  <r p1="Remdb" p2="noval" p3="" p4="" p5="" p6="REF">Electron Microscopy Data Bank</r>
+  <r p1="Remdb" p2="noval" p3="" p4="" p5="" p6="REF">EMDataBank</r>
+
+  <!-- empiar -->
+  <r p1="Rempiar" p2="noval" p3="" p4="" p5="" p6="REF">Electron Microscopy Public Image Archive</r>
+  <r p1="Rempiar" p2="contextOnly" p3="" p4="(?i)(image|deposit)" p5="5000" p6="REF">EMPIAR</r>
+
+  <r p1="Rena" p2="contextOnly" p3="" p4="(?i)(nucleotide|archive)" p5="5000" p6="REF">ENA</r>
+  <!--r p1="Rena" p2="contextOnly" p3="" p4="(?i)(european|nucleotide|archive)" p5="5000" p6="REF">ENA</r-->
+  <r p1="Rena" p2="noval" p3="" p4="" p5="" p6="REF">European Nucleotide Archive</r>
+  <r p1="Rena" p2="noval" p3="" p4="" p5="" p6="REF">EMBL Nucleotide Sequence Database</r>
+
+  <r p1="Rensembl" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl</r>
+
+
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Gg]enomes</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Bb]acteria</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Ff]ungi</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Mm]etazoa</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Pp]lants</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Pp]rotists</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Gg]enomes [Bb]acteria</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Gg]enomes [Ff]ungi</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Gg]enomes [Mm]etazoa</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Gg]enomes [Pp]lants</r>
+ <r p1="Rensemblgenomes" p2="noval" p3="" p4="" p5="" p6="REF">Ensembl [Gg]enomes [Pp]rotists</r>
+
+  <!-- enzyme portal -->
+  <r p1="Renzymeportal" p2="noval" p3="" p4="" p5="" p6="REF">Enzyme Portal</r>
+
+  <r p1="Repmc" p2="noval" p3="" p4="" p5="" p6="REF">EuropePMC</r>
+  <r p1="Repmc" p2="noval" p3="" p4="" p5="" p6="REF">Europe PMC</r>
+  <r p1="Repmc" p2="noval" p3="" p4="" p5="" p6="REF">Europe PubMed Central</r>
+  <r p1="Repmc" p2="noval" p3="" p4="" p5="" p6="REF">europepmc\.org</r>
+
+  <!-- eva -->
+  <r p1="Reva" p2="noval" p3="" p4="" p5="" p6="REF">[Ee]uropean [Vv]ariation [Aa]rchive</r>
+  <r p1="Reva" p2="contextOnly" p3="" p4="(?i)(allele|model|multivariate|polymorphism|locus|loci|haplotype|genotype|variant|chromosome|SNPs|snp|European Variation Archive|variation|archive|gene)" p5="5000" p6="REF">EVA</r>
+  
+
+  <r p1="Rgxa" p2="noval" p3="" p4="" p5="" p6="REF">Expression Atlas</r>
+
+  <!-- go -->
+  <r p1="Rgo" p2="noval" p3="" p4="" p5="" p6="REF">Gene Ontology</r>
+
+  <!-- GWAS Catalogue -->
+  <r p1="Rgwas" p2="noval" p3="" p4="" p5="" p6="REF">GWAS Catalog</r>
+ 
+  <!-- HGNC -->
+  <r p1="Rhgnc" p2="noval" p3="" p4="" p5="" p6="REF">HGNC</r>
+
+  <!-- HPA -->
+  <r p1="Rhpa" p2="noval" p3="" p4="" p5="" p6="REF">[Hh]uman [Pp]rotein [Aa]tlas</r>
+  <r p1="Rhpa" p2="noval" p3="" p4="" p5="" p6="REF">HPA|hpa</r>
+  <r p1="Rhpa" p2="noval" p3="" p4="" p5="" p6="REF">[Pp]roteinatlas</r>
+  <r p1="Rhpa" p2="noval" p3="" p4="" p5="" p6="REF">proteinatlas\.org</r>
+  <r p1="Rhpa" p2="noval" p3="" p4="" p5="" p6="REF">[Pp]rotein [Aa]tlas</r>
+	
+
+  <!-- identifiers -->
+  <r p1="Ridentifiers" p2="noval" p3="" p4="" p5="" p6="REF">identifiers\.org</r>
+
+  <!-- IGSR/1000 genomes -->
+  <r p1="Rigsr" p2="noval" p3="" p4="" p5="" p6="REF">International Genome Sample Resource</r>
+  <r p1="Rigsr" p2="noval" p3="" p4="" p5="" p6="REF">1000 Genomes</r>
+
+  <!-- Intact/Mint --> 
+  <r p1="Rintact" p2="noval" p3="" p4="" p5="" p6="REF">IntAct</r>
+  <r p1="Rintact" p2="noval" p3="" p4="" p5="" p6="REF">[Ii]nt[Aa]ct database</r>
+  <r p1="Rmint" p2="noval" p3="" p4="" p5="" p6="REF">MINT</r>
+  <r p1="Rmint" p2="noval" p3="" p4="" p5="" p6="REF">[Mm]olecular [Ii][Nn][Tt]eraction [Dd]atabase</r>
+  <r p1="Rmint" p2="noval" p3="" p4="(?i)(database|interaction)" p5="5000" p6="REF">mint</r>
+  
+  <!-- intenz -->
+  <r p1="Rintenz" p2="noval" p3="" p4="" p5="" p6="REF">IntEnz</r>
+  <r p1="Rintenz" p2="noval" p3="" p4="" p5="" p6="REF">Integrated relational Enzyme database</r>
+
+  <r p1="Rinterpro" p2="noval" p3="" p4="" p5="" p6="REF">InterPro</r>
+  <r p1="Rinterpro" p2="noval" p3="" p4="" p5="" p6="REF">InterProScan</r>
+
+  <r p1="Rmetabolights" p2="noval" p3="" p4="" p5="" p6="REF">MetaboLights</r>
+
+  <!-- mouse resources -->
+  <r p1="Remma" p2="noval" p3="" p4="" p5="" p6="REF">EMMA mouse repository</r>
+
+  <!-- OLS -->
+  <r p1="Rols" p2="noval" p3="" p4="" p5="" p6="REF">Ontology Lookup Service</r>
+
+  <!-- pdbe -->
+  <r p1="Rpdb" p2="contextOnly" p3="" p4="(?i)(protein|data|bank)" p5="5000" p6="REF">PDB</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">Protein Databank</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">Protein DataBank</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">Protein Data Bank</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">PDBe</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">Protein Databank in Europe</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">Protein DataBank in Europe</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">Protein Data Bank in Europe</r>
+  <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">RCSB PDB</r>
+
+  <r p1="Rpfam" p2="noval" p3="" p4="" p5="" p6="REF">Pfam</r>
+  <r p1="Rpfam" p2="noval" p3="" p4="" p5="" p6="REF">Protein Family Database</r>
+
+  <r p1="Rpride" p2="noval" p3="" p4="" p5="" p6="REF">PRIDE</r>
+  <r p1="Rpride" p2="noval" p3="" p4="" p5="" p6="REF">PRoteomics IDEntifications database</r>
+
+  <!-- reactome -->
+  <r p1="Rreactome" p2="noval" p3="" p4="" p5="" p6="REF">Reactome</r>
+
+  <!-- rfam -->
+  <r p1="Rrfam" p2="noval" p3="" p4="" p5="" p6="REF">Rfam</r>
+
+  <!-- rna central -->
+  <r p1="Rrnacentral" p2="noval" p3="" p4="" p5="" p6="REF">RNAcentral</r>
+  
+    <!-- STRING-db -->
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">STRING</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">STRING-DB|string-db|String-DB|String-db</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">(String|string) (db|DB)</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">STRING-[Dd]atabase</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">(STRING|string|String) [Dd]atabase</r>  
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">(STRING|string|String) [Ii]nteraction [Dd]atabase</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">(STRING|string|String) [Nn]etwork</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">database (STRING|String|string)</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">https://string-db.org</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">http://string-db.org</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">string-db.org</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">string.embl.de</r>
+  <r p1="Rstringdb" p2="noval" p3="" p4="" p5="" p6="REF">[Dd]atabase(\(STRING\)|\(String\)|\(string\))</r>
+  
+
+  <!-- sure chembl -->
+  <r p1="Rsurechembl" p2="noval" p3="" p4="" p5="" p6="REF">SureChEMBL</r>
+
+  <!-- unichem merged with ChEMBL -->
+  <!--r p1="Runichem" p2="noval" p3="" p4="" p5="" p6="REF">UniChem</r-->
+
+  <!-- Uniprot -->
+
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">UniProt|Uniprot|uniprot|uniProt|UNIPROT</r>
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">Uniref|UniRef|uniref|uniRef|UNIREF</r>
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">Uniprac|UniPrac|uniPrac|uniprac|UNIPRAC</r>
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">Trembl|trembl|TREMBL|TrEMBL|TrEmbl</r>
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">UniProtKB|Uniprotkb|UniprotKB|UNIPROTKB|uniProtKB|uniprotkb|uniprotKB|UNIPROTKB</r>
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">SwissProt|swissProt|swissprot|Swissprot|SWISSPROT</r>
+  <r p1="Runiprot" p2="noval" p3="" p4="" p5="" p6="REF">Swiss-Prot|Swiss-prot|swiss-Prot|swiss-prot|SWISS-PROT</r>
+
+
+  <!-- vectorbase -->
+  <r p1="Rvectorbase" p2="noval" p3="" p4="" p5="" p6="REF">VectorBase</r>
+
+  <!-- wormbase -->
+  <r p1="Rwormbase" p2="noval" p3="" p4="" p5="" p6="REF">WormBase</r>
+
+  <template>%0</template>
+    <r><z:[^>]*>(.*</z)!:[^>]*></r>
+    <r>="([^"]*)"</r>
+  <!-- TODO filtering rules for pdb e.g., 4min, etc. -->
+</mwt>
