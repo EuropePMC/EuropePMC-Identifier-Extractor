@@ -12,9 +12,9 @@
 	<!-- 2018 adding other funder names to the dictionary -->
 	
 	<!-- Alzheimer’s Society/ ALZS -->
-	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer's Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[0-9][0-9]|[0-9][0-9][0-9]</r>
-	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer's Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9][0-9]</r>
-	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer's Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9][0-9]</r>
+	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer['|’]s Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[0-9][0-9]|[0-9][0-9][0-9]</r>
+	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer['|’]s Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9][0-9]</r>
+	<r p1="alzs" p2="context" p3="Alzheimer's Society" p4="(?i)(Alzheimer['|’]s Society|Alzheimers Society|Alzheimer Society|UK Alzheimer Society)" p5="60" p6="(?i)(Alzheimer Society of Canada|Alzheimer Society Canada|Alzheimer Society of Dutch|Dutch Alzheimer Society)">[a-zA-z][a-zA-z]\-[a-zA-z][a-zA-z][a-zA-z]\-[0-9][0-9]\-[0-9][0-9][0-9]</r>
 	
 	<!-- The Academy of Medical Sciences/ AMS -->
 	<r p1="ams" p2="context" p3="Academy of Medical Sciences" p4="(?i)(Academy of Medical Sciences)" p5="60" p6="" p7="AMS">[a-zA-z][a-zA-z][a-zA-z][0-9][0-9][0-9]\\[0-9][0-9][0-9][0-9]</r>
@@ -27,28 +27,28 @@
 	<r p1="bhf" p2="context" p3="British Heart Foundation" p4="(?i)(British Heart Foundation (Centre of Research Excellence|Centre of Regenerative Medicine)?)" p5="60" p6="" p7="BHF">[a-zA-z][a-zA-z]\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]\/[0-9][0-9][0-9][0-9][0-9]</r>
 	
 	<!-- Chief Scientist Office/ CSO -->
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9]</r>
 	
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]/[0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[0-9][0-9]</r>
 	
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9][0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]/[0-9][0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]/[0-9][0-9][0-9][0-9]</r>
 	
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9][0-9]</r>
 	
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]\/[a-zA-z][0-9][0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[a-zA-z][0-9][0-9][0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]\/[0-9][0-9]</r>
-	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist's Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]\/[a-zA-z][0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z]\/[a-zA-z][a-zA-z][a-zA-z]\/[0-9][0-9]\/[a-zA-z][0-9][0-9][0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z]\/[0-9]\/[0-9]\/[0-9][0-9]</r>
+	<r p1="cso" p2="context" p3="Chief Scientist Office" p4="(?i)(Chief Scientist Office|Chief Scientist['|’]s Office)" p5="60" p6="" p7="CSO">[a-zA-z][a-zA-z][a-zA-z][a-zA-z][a-zA-z][0-9][0-9]</r>
 	
 	<!-- Diabetes UK/ DUK -->
 	<r p1="duk" p2="context" p3="Diabetes UK" p4="(?i)(Diabetes UK)" p5="50">[0-9][0-9]\/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
