@@ -325,10 +325,12 @@ public class AnnotationFilter implements Service {
           return bioStudiesr.isValid(domain, id);
       } else if ("hpa".equalsIgnoreCase(db)) {
           return hpar.isValid("hpa", id);
-      } else if (db.matches("ebisc|rrid|empiar|nct")) {
+      } else if (db.matches("ebisc|rrid|empiar|nct|complexportal|uniparc|ensembl")) {
           return responseCoder.isValid(db, id);
       } else if ("hipsci".equalsIgnoreCase(db)) {
           return hipscir.isValid(db, id);
+      } else if ("gen".equalsIgnoreCase(db) && id.matches("^GCA_.+")) {
+          return ar.isValid(domain, id);
       } else {
          id = ar.normalizeID(db, id);
          return ar.isValid(domain, id);

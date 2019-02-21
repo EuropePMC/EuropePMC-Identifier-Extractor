@@ -17,7 +17,15 @@ public class ResponseCodeResolver extends Resolver {
 				url = new URL("https://scicrunch.org/resolver/"+URLEncoder.encode(accno,"UTF-8"));
 			} else if(domain.equalsIgnoreCase("nct")) {
 				url = new URL("https://clinicaltrials.gov/ct2/show/"+URLEncoder.encode(accno,"UTF-8"));
+			} else if(domain.equalsIgnoreCase("complexportal")) {
+				url = new URL("https://www.ebi.ac.uk/intact/complex-ws/complex/"+URLEncoder.encode(accno,"UTF-8"));
+			}else if(domain.equalsIgnoreCase("uniparc")) {
+				url = new URL("https://www.uniprot.org/uniparc/"+URLEncoder.encode(accno,"UTF-8")+".xml");
+			}else if(domain.equalsIgnoreCase("ensembl")) {
+				url = new URL("http://rest.ensembl.org/archive/id/"+URLEncoder.encode(accno,"UTF-8"));
 			}
+			
+			
 
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
