@@ -30,6 +30,7 @@ import ukpmc.NcbiResolver;
 import ukpmc.ResponseCodeResolver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /*
  *@Jyothi Katuri 
@@ -381,27 +382,40 @@ public class AccessionNumberFilterTest {
 		testAccessionNumberFilter(input,outputExpected);
 	}
 	
+	@Test
+	public void testMissingAccession() {
+	
+		String input =  "<SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain><SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain>Scale bar 1 mm.</p><p><bold>DOI:</bold><ext-link ext-link-type=\"doi\" xlink:href=\"10.7554/eLife.25835.002\">http://dx.doi.org/10.7554/eLife.25835.002</ext-link></p></SecTag>   <!--wrong secTag position-->  </plain></SENT></SecTag><SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain><SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain>Scale bar 1 mm.</p><p><bold>DOI:</bold><ext-link ext-link-type=\"doi\" xlink:href=\"10.7554/eLife.25835.002\">http://dx.doi.org/10.7554/eLife.25835.002</ext-link></p></plain></SENT></SecTag> <!--right secTag position--></SecTag>";
+		String outputExpected =  "<SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain><SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain>Scale bar 1 mm.</p><p><bold>DOI:</bold><ext-link ext-link-type=\"doi\" xlink:href=\"10.7554/eLife.25835.002\">http://dx.doi.org/10.7554/eLife.25835.002</ext-link></p></SecTag>   <!--wrong secTag position-->  </plain></SENT></SecTag><SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain><SecTag type=\"INTRO\"><SENT sid=\"11341\" pm=\".\"><plain>Scale bar 1 mm.</p><p><bold>DOI:</bold><ext-link ext-link-type=\"doi\" xlink:href=\"10.7554/eLife.25835.002\">http://dx.doi.org/10.7554/eLife.25835.002</ext-link></p></plain></SENT></SecTag> <!--right secTag position--></SecTag>";
+		testAccessionNumberFilter(input,outputExpected);
+		
+	}
+	
 
 	private void testAccessionNumberFilter(String input, String output) {
 
 		try {
 			File testFile = new File("text.txt");
+			File testFileFinal = new File("text_final.txt");
 			String patternmapped =  patternMatch(input, ACCESSION);
 			
-			
 			InputStream in = new ByteArrayInputStream(patternmapped.getBytes("UTF-8"));
-			FileOutputStream out = new FileOutputStream(testFile);
-			PrintStream outpw = new PrintStream(out);
-			
-			AnnotationFilter annotationFilter = new AnnotationFilter(in,outpw);
+			PrintStream outpw = new PrintStream(new FileOutputStream(testFile));
+			AnnotationFilter annotationFilter = new AnnotationFilter(in,outpw, true);
 			
 			annotationFilter.run();		
 			
-			String sent = getFileContent(new FileInputStream(testFile));
-			System.out.println(sent);
-			System.out.println(output);
+			outpw = new PrintStream(new FileOutputStream(testFileFinal));
+			annotationFilter = new AnnotationFilter(new FileInputStream(testFile),outpw, false);
+		    annotationFilter.run();		
 			
-			assertEquals(output,sent);
+			String sent = getFileContent(new FileInputStream(testFileFinal));
+			
+			if ("".equalsIgnoreCase(output)==false) {
+				assertEquals(output,sent);
+			}else {
+				assertTrue(sent.contains("wsize")==false);
+			}
 			
 		} catch (IOException e) {
 			System.err.println( e);
@@ -415,7 +429,7 @@ public class AccessionNumberFilterTest {
 		try {
 
 			Reader rin = new FileReader(dict);
-			DictFilter df = new DictFilter(rin, "raw", null, false);
+			DictFilter df = new DictFilter(rin, "elem", "plain", false);
 			df.setInputEncoding("UTF-8");
 			df.setOutputEncoding("UTF-8");
 			InputStream in = new ByteArrayInputStream(text.getBytes("UTF-8"));
@@ -451,5 +465,16 @@ public class AccessionNumberFilterTest {
 	    } finally {
 	        reader.close();
 	    }
+	}
+	
+	
+	private void testAccessionNumberFilterByFile(String filePath, String output) {
+		try {
+			String input = getFileContent(new FileInputStream(new File(filePath)));
+			this.testAccessionNumberFilter(input, output);
+			
+		} catch (IOException e) {
+			System.err.println( e);
+		}
 	}
 }

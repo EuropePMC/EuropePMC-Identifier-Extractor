@@ -56,16 +56,26 @@ public class AnnotationFilter implements Service {
    protected static Dfa dfa_boundary;
    private static Dfa dfa_plain;
    private static Dfa dfa_entity;
+   protected static Dfa dfa_boundary_secTag;
    
    private static Map<String, String> cachedValidations = new HashMap<>(); // TODO to remove
    private static Map<String, Integer> numOfAccInBoundary = new HashMap<>();
    private InputStream in;
    private OutputStream out;
+   private boolean isSecTag;
 
    public AnnotationFilter(InputStream in, OutputStream out) {
       this.in = in;
       this.out = out;
+      this.isSecTag=false;
    }
+   
+   public AnnotationFilter(InputStream in, OutputStream out, boolean isSecTag) {
+	      this.in = in;
+	      this.out = out;
+	      this.isSecTag=isSecTag;
+	   }
+	   
 
    /**
     * @throws IOException
@@ -168,42 +178,47 @@ public class AnnotationFilter implements Service {
          try {
             Map<String, String> map = Xml.splitElement(yytext, start);
             MwtAtts m = new MwtParser(map).parse();
-	        String textBeforeEntity = getTextBeforeEntity(yytext, start, m.wsize());
-
-            boolean isValid = false;
-            if(isAccInBlacklist(m.content())) {
-            	isValid = false;
-            }else  if ("noval".equals(m.valMethod())) {
-	            isValid = true;
-            } else if ("contextOnly".equals(m.valMethod())) {
-               if (isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) isValid = true;
-            } else if ("cachedWithContext".equals(m.valMethod())) {
-               if ((isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) && isIdValidInCache(m.db(),
-                       m.content(), m.domain())) isValid = true;
-            } else if ("onlineWithContext".equals(m.valMethod())) {
-               if ((isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) && isOnlineValid(m.db(),
-                       m.content(), m.domain())) isValid = true;
-            } else if ("context".equals(m.valMethod())) {
-               if (isInContext(textBeforeEntity, m.ctx())) isValid = true;
-            } else if ("cached".equals(m.valMethod())) {
-               if (isIdValidInCache(m.db(), m.content(), m.domain())) isValid = true;
-            } else if ("online".equals(m.valMethod())) {
-               if (isOnlineValid(m.db(), m.content(), m.domain())) isValid = true;
+	        
+            if (m.valMethod()!=null && ("".equalsIgnoreCase(m.valMethod())==false)) {
+	            String textBeforeEntity = getTextBeforeEntity(yytext, start, m.wsize());
+	
+	            boolean isValid = false;
+	            if(isAccInBlacklist(m.content())) {
+	            	isValid = false;
+	            }else  if ("noval".equals(m.valMethod())) {
+		            isValid = true;
+	            } else if ("contextOnly".equals(m.valMethod())) {
+	               if (isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) isValid = true;
+	            } else if ("cachedWithContext".equals(m.valMethod())) {
+	               if ((isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) && isIdValidInCache(m.db(),
+	                       m.content(), m.domain())) isValid = true;
+	            } else if ("onlineWithContext".equals(m.valMethod())) {
+	               if ((isAnySameTypeBefore(m.db()) || isInContext(textBeforeEntity, m.ctx())) && isOnlineValid(m.db(),
+	                       m.content(), m.domain())) isValid = true;
+	            } else if ("context".equals(m.valMethod())) {
+	               if (isInContext(textBeforeEntity, m.ctx())) isValid = true;
+	            } else if ("cached".equals(m.valMethod())) {
+	               if (isIdValidInCache(m.db(), m.content(), m.domain())) isValid = true;
+	            } else if ("online".equals(m.valMethod())) {
+	               if (isOnlineValid(m.db(), m.content(), m.domain())) isValid = true;
+	            }
+	
+	            String secOrSent="";
+	            if (runner.clientData!=null) {
+	            	secOrSent = runner.clientData.toString();
+	            }
+	            
+	            if (isValid && isInValidSection(secOrSent, m.sec(), m.db(), m.content())) {
+	                String tagged = "<" + m.tagName() +" db=\"" + m.db() + "\" ids=\"" + m.content() +"\">"+ m.content()
+	                        + "</" + m.tagName() + ">";
+	                yytext.replace(start, yytext.length(), tagged);
+	                numOfAccInBoundary.put(m.db(), 1);
+	            } else { // not valid
+	                yytext.replace(start, yytext.length(), m.content());
+		        }
+            }else {
+            	AccResolver.logOutput("Accession already validated "+map.get("ids")+ " "+map.get("db"));
             }
-
-            String secOrSent="";
-            if (runner.clientData!=null) {
-            	secOrSent = runner.clientData.toString();
-            }
-            
-            if (isValid && isInValidSection(secOrSent, m.sec(), m.db(), m.content())) {
-                String tagged = "<" + m.tagName() +" db=\"" + m.db() + "\" ids=\"" + m.content() +"\">"+ m.content()
-                        + "</" + m.tagName() + ">";
-                yytext.replace(start, yytext.length(), tagged);
-                numOfAccInBoundary.put(m.db(), 1);
-            } else { // not valid
-                yytext.replace(start, yytext.length(), m.content());
-	        }
          } catch (Exception e) {
             LOGGER.log(Level.INFO, "context", e);
          }
@@ -345,9 +360,12 @@ public class AnnotationFilter implements Service {
          loadPredefinedResults();
 
          Nfa bnfa = new Nfa(Nfa.NOTHING);
-         bnfa.or(Xml.GoofedElement("SecTag"), procBoundary)
-         .or(Xml.GoofedElement("SENT"), procBoundary);
+         bnfa.or(Xml.GoofedElement("SENT"), procBoundary);
          dfa_boundary = bnfa.compile(DfaRun.UNMATCHED_COPY);
+         
+         Nfa bnfaSecTag = new Nfa(Nfa.NOTHING);
+         bnfaSecTag.or(Xml.GoofedElement("SecTag"), procBoundary);
+         dfa_boundary_secTag = bnfaSecTag.compile(DfaRun.UNMATCHED_COPY);
 
          Nfa snfa = new Nfa(Nfa.NOTHING);
          snfa.or(Xml.GoofedElement("plain"), procPlain);
@@ -365,6 +383,7 @@ public class AnnotationFilter implements Service {
       int port = 7811;
       int j = 0;
       Boolean stdpipe = false;
+      boolean secTag = false;
 
       try {
          if (arg.length > 0) {   
@@ -380,10 +399,14 @@ public class AnnotationFilter implements Service {
          if ("-stdpipe".equals(arg[i])) {
             stdpipe = true;
          }
+         
+         if ("-secTag".equals(arg[i])) {
+        	 secTag = true;
+          }
       }
         
       if (stdpipe) {
-         AnnotationFilter validator = new AnnotationFilter(System.in, System.out);
+         AnnotationFilter validator = new AnnotationFilter(System.in, System.out, secTag);
          validator.run();
       } else {
          // LOGGER.info("AnnotationFilter will listen on " + port + " .");
@@ -407,7 +430,13 @@ public class AnnotationFilter implements Service {
 
    @SuppressWarnings("deprecation")
    public void run() {
-      DfaRun dfaRun = new DfaRun(dfa_boundary);
+	   DfaRun dfaRun;
+	  if (this.isSecTag) {
+		  dfaRun = new DfaRun(dfa_boundary_secTag);
+	  }else {
+		  dfaRun = new DfaRun(dfa_boundary);
+	  }
+	  
       dfaRun.setIn(new ReaderCharSource(in));
       PrintStream outpw = new PrintStream(out);
 

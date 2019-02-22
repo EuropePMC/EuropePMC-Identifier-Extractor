@@ -543,7 +543,7 @@ public class ResourceNameFileterTest {
 		try {
 
 			Reader rin = new FileReader(dict);
-			DictFilter df = new DictFilter(rin, "raw", null, false);
+			DictFilter df = new DictFilter(rin, "elem", "plain", false);
 			df.setInputEncoding("UTF-8");
 			df.setOutputEncoding("UTF-8");
 			InputStream in = new ByteArrayInputStream(text.getBytes("UTF-8"));
