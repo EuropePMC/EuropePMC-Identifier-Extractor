@@ -102,10 +102,10 @@
   <r p1="reactome" p2="onlineWithContext" p3="reactome" p4="(?i)(biological|regulatory|pathway|pathways|database)" p5="20000" p6="REF">R\-HSA\-[0-9]+</r>
 
   <!-- N rfam Y -->
-  <r p1="rfam" p2="onlineWithContext" p3="rfam" p4="(?i)(RNA|family|families|database)" p5="20000" p6="REF">RF[0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="rfam" p2="online" p3="rfam" p4="" p5="" p6="REF">RF[0-9][0-9][0-9][0-9][0-9]</r>
 
   <!-- N rnacentral -->
-  <r p1="rnacentral" p2="onlineWithContext" p3="rnacentral" p4="(?i)(RNA|sequence|sequences|central|database)" p5="20000" p6="REF">URS[0-9A-Z]+_[0-9]+</r>
+  <r p1="rnacentral" p2="online" p3="rnacentral" p4="" p5="" p6="REF">URS[0-9A-Z]+_[0-9]+</r>
 
    <!-- uniprot -->
   <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession(s)?|Locus|GenBank|genome|sequence(s)?|protein|trembl|uniparc|uniprotkb|Acc.No|Acc. No)" p5="20000" p6="REF">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([-][0-9]+)?</r>

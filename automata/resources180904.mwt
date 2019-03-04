@@ -144,7 +144,7 @@
   <r p1="Rpdb" p2="noval" p3="" p4="" p5="" p6="REF">RCSB PDB</r>
 
   <!-- Pfam -->
-  <r p1="Rpfam" p2="contextOnly" p3="" p4="(?i)(protein|family|database)" p5="5000" p6="REF">Pfam</r>
+  <r p1="Rpfam" p2="contextOnly" p3="" p4="(?i)(protein|family|database|enzyme)" p5="5000" p6="REF">Pfam</r>
   <r p1="Rpfam" p2="noval" p3="" p4="" p5="" p6="REF">Protein Family Database</r>
 
   <!-- PRIDE -->
