@@ -12,9 +12,8 @@
   <r p1="biosample" p2="onlineWithContext" p3="biosamples" p4="(?i)(biosample|accession|model)" p5="20000" p6="REF">SAM[NED][A-Z]?[0-9]+</r>
 
   <!-- N biostudies -->
-  <r p1="biostudies" p2="online" p3="biostudies" p4="(?i)(biostudies)" p5="20000" p6="REF">S\-[A-Z][A-Z][A-Z][A-Z][A-Z0-9\-]+</r> 
+  <r p1="biostudies" p2="online" p3="" p4="" p5="" p6="REF">S\-[A-Z][A-Z][A-Z][A-Z][A-Z0-9\-]+</r> 
 
- 
    <!-- cath--> 
   <r p1="cath" p2="onlineWithContext" p3="cath" p4="(?i)(cath|cath-Gene3D|cath Gene3D|c.a.t.h|domain|families|cathnode|pdb|superfamily)" p5="20000" p6="REF">[0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9][0-9]</r>
   <r p1="cath" p2="onlineWithContext" p3="cath" p4="(?i)(cath|cath-Gene3D|cath Gene3D|c.a.t.h|domain|families|cathnode|pdb|superfamily)" p5="20000" p6="REF">([1-4]\.[0-9]+\.[0-9]+\.[0-9]+)</r>
@@ -27,133 +26,98 @@
   <r p1="chembl" p2="onlineWithContext" p3="chembl-molecule" p4="(?i)(chembl|compound)" p5="20000" p6="REF">CHEMBL[0-9]+</r>
 
   <!-- N complex portal -->
-  <r p1="complexportal" p2="onlineWithContext" p3="intact-complexes" p4="(?i)(complex)" p5="20000" p6="REF">(EBI|CPX)\-[0-9]+</r>
+  <r p1="complexportal" p2="onlineWithContext" p3="intact-complexes" p4="(?i)(protein|complex)" p5="20000" p6="REF">(CPX)\-[0-9]+</r>
 
  <!-- N ebi metagenomics -->
- <r p1="metagenomics" p2="onlineWithContext" p3="metagenomics_samples" p4="" p5="20000" p6="REF">SRS[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+ <r p1="metagenomics" p2="onlineWithContext" p3="metagenomics_samples" p4="(?i)(samples|ebi metagenomics|metagenomics|database)" p5="20000" p6="REF">SRS[0-9][0-9][0-9][0-9][0-9][0-9]</r>
 
   <!-- N efo -->
-  <r p1="efo" p2="onlineWithContext" p3="efo" p4="" p5="20000" p6="REF">EFO_[0-9]+</r>
-  <r p1="efo" p2="onlineWithContext" p3="efo" p4="" p5="20000" p6="REF">EFO:[0-9]+</r>
-
+  <r p1="efo" p2="online" p3="efo" p4="" p5="" p6="REF">EFO_[0-9]+</r>
+  <r p1="efo" p2="online" p3="efo" p4="" p5="" p6="REF">EFO:[0-9]+</r>
 
   <!-- ega -->
-<!--   <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|datasets|samples|dac|experiments|runs|analyses|analysis|policy|submission|file|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGA[BCDFNPRSXZ]([0-9]){11}</r>-->
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|studies|study|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAS[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|dataset|datasets|data set|data sets|validation sets|validation set|set|sets|data|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAD[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|samples|sample|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAN[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|dac|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAC[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|experiments|experiment|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAX[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|runs|run|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAR[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|analysis|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAZ[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|policy|policies|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAP[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|submission|submissions|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAB[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="ega" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|file|files|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAF[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="ega.study" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|studies|study|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAS[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="ega.dataset" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|dataset|datasets|data set|data sets|validation sets|validation set|set|sets|data|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAD[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="ega.dac" p2="onlineWithContext" p3="ega" p4="(?i)(ega|accession|archive|dac|European Genome-phenome Archive|European Genome phenome Archive)" p5="20000" p6="REF">EGAC[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
                                
-
-
   <!-- emdb -->
   <r p1="emdb" p2="onlineWithContext" p3="emdb" p4="(?i)(emdb|accession|code)" p5="20000" p6="REF">EMD\-[0-9][0-9][0-9][0-9]</r>
 
   <!-- N empiar -->
   <r p1="empiar" p2="onlineWithContext" p3="" p4="(?i)(accession|code)" p5="20000" p6="REF">EMPIAR\-[0-9][0-9][0-9][0-9][0-9]</r>
 
-
-    <!-- gen / ena-->
-  <!--<r p1="gen" p2="onlineWithContext" p3="embl" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession)" p5="20000" p6="REF">([A-NR-Z][0-9][0-9][0-9][0-9][0-9]|[A-K][A-Z][0-9][0-9][0-9][0-9][0-9][0-9]|[A-J][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9]|[ABCDEG][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]?[0-9]?|A[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([.][0-9]+)?</r> -->
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">[A-Z][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">[A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">[A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">TI[0-9]+</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">(E|D|S)RP[0-9]{6}</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">ERS[0-9]{6}</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">(E|D|S)RX[0-9]{6}</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">(E|D|S)RR[0-9]{6}</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">(E|D|S)RZ[0-9]{6}</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">(E|D|S)RA[0-9]{6}</r>
-  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive)" p5="20000" p6="REF">GCA_[0-9]{9}\.[0-9]+</r>
+  <!-- gen / ena-->
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|asssembled|annotated|sequence|sequences)" p5="20000" p6="REF">[A-Z][0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|asssembled|annotated|sequence|sequences)" p5="20000" p6="REF">[A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|asssembled|annotated|sequence|sequences)" p5="20000" p6="REF">[A-RT-Z][A-Z][A-Z][A-Z][S]?[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]([0-9])?</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|protein coding|protein|sequence|sequences)" p5="20000" p6="REF">[A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|trace|traces)" p5="20000" p6="REF">TI[0-9]+</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|study|studies)" p5="20000" p6="REF">(E|D|S)RP[0-9][0-9][0-9][0-9][0-9]([0-9]+)?</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|sample|samples)" p5="20000" p6="REF">ERS[0-9][0-9][0-9][0-9][0-9]([0-9]+)?</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|experiment|experiments)" p5="20000" p6="REF">(E|D|S)RX[0-9][0-9][0-9][0-9][0-9]([0-9]+)?</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|run|runs)" p5="20000" p6="REF">(E|D|S)RR[0-9][0-9][0-9][0-9][0-9]([0-9]+)?</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|analysis|analyses)" p5="20000" p6="REF">(E|D|S)RZ[0-9][0-9][0-9][0-9][0-9]([0-9]+)?</r>
+  <r p1="gen" p2="onlineWithContext" p3="nucleotideSequences" p4="(?i)(genbank|\bgen\b|\bena\b|ddbj|embl|european nucleotide archive|accession|nucleotide|archive|submission|submissions)" p5="20000" p6="REF">(E|D|S)RA[0-9][0-9][0-9][0-9][0-9]([0-9]+)?</r>
         
   <!-- ensembl -->
-  <r p1="ensembl" p2="onlineWithContext" p3="ensemblRoot" p4="(?i)(ensembl|accession|transcript|sequence)" p5="20000" p6="REF">[eE][nN][sS][a-zA-Z]*[gG][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+</r>
-  <r p1="ensembl" p2="onlineWithContext" p3="ensemblRoot" p4="(?i)(ensembl|accession|transcript|sequence)" p5="20000" p6="REF">[eE][nN][sS][a-zA-Z]*[ptPT][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+</r>
-
-  <!-- ensembl genomes -->
-
-  <!-- N enzyme portal -->
-  <!--r p1="enzymeportal" p2="onlineWithContext" p3="enzymeportal" p4="" p5="20000" p6="REF">XXX</r-->
-
-  <!-- N eva   -->
-  <r p1="eva" p2="onlineWithContext" p3="dgva" p4="(?i)(allele|model|multivariate|polymorphism|locus|loci|haplotype|genotype|variant|chromosome|SNPs|snp|European Variation Archive|variation|archive|gene)" p5="20000" p6="REF">esv[0-9]+|estd[0-9]+|essv[0-9]+|[rs]s[0-9]+</r>
-  
-  
-  <!-- N expression atlass -->
+  <r p1="ensembl" p2="onlineWithContext" p3="" p4="(?i)(ensembl|accession|transcript|sequence)" p5="20000" p6="REF">[eE][nN][sS][a-zA-Z]*[gG][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+</r>
+  <r p1="ensembl" p2="onlineWithContext" p3="" p4="(?i)(ensembl|accession|transcript|sequence)" p5="20000" p6="REF">[eE][nN][sS][a-zA-Z]*[ptPT][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+</r>
 
   <!-- go -->
   <r p1="go" p2="onlineWithContext" p3="go" p4="(?i)(go|gene ontology)" p5="20000" p6="REF">GO:[0-9][0-9][0-9][0-9][0-9][0-9][0-9]</r>
 
-  <!-- N gwas catalog -->
-
   <!-- N hgnc Y -->
-  <r p1="hgnc" p2="onlineWithContext" p3="hgnc" p4="" p5="20000" p6="REF">HGNC:[0-9]+</r>
+  <r p1="hgnc" p2="onlineWithContext" p3="hgnc" p4="(?i)(HUGO Gene Nomenclature Committee|hugo|gene|nomenclature|committee|database)" p5="20000" p6="REF">HGNC:[0-9]+</r>
   
    <!-- HPA : HPA has a problem with context validation so keep the no val here and do the validation in the code-->
-<!--<r p1="hpa" p2="onlineWithContext" p3="proteinatlas" p4="(i)(hpa|proteinatlas|protein atlas|human protein atlas|www.proteinatlas.org|antibody)" p5="20000" p6="REF">[eE][nN][sS][Gg]([0-9]){11}</r>-->
-<r p1="hpa" p2="online" p3="proteinatlas" p4="(i)(hpa|proteinatlas|protein atlas|human protein atlas|www.proteinatlas.org|antibody)" p5="20000" p6="REF">(HPA|hpa)[0-9][0-9][0-9][0-9][0-9][0-9]</r>
-<r p1="hpa" p2="online" p3="proteinatlas" p4="(i)(hpa|proteinatlas|protein atlas|human protein atlas|www.proteinatlas.org|antibody)" p5="20000" p6="REF">(CAB|cab)[0-9][0-9][0-9][0-9][0-9][0-9]</r>
-
-  <!-- N identifiers -->
+   <r p1="hpa" p2="online" p3="" p4="" p5="" p6="REF">(HPA|hpa)[0-9][0-9][0-9][0-9][0-9][0-9]</r>
+   <r p1="hpa" p2="online" p3="" p4="" p5="" p6="REF">(CAB|cab)[0-9][0-9][0-9][0-9][0-9][0-9]</r>
 
   <!-- 1000genomes -->
   <r p1="igsr" p2="contextOnly" p3="" p4="(\bcell\b|sample|iPSC|iPSCs|iPS|fibroblast|fibroblasts|QTL|eQTL|pluripotent|induced|\bdonor\b|\bstem\b|EBiSC|1000 Genomes|Coriell|\bLCL\b|lymphoblastoid)" p5="1000" p6="REF">HG0[0-4][0-9][0-9][0-9]</r>
   <r p1="igsr" p2="contextOnly" p3="" p4="(\bcell\b|sample|iPSC|iPSCs|iPS|fibroblast|fibroblasts|QTL|eQTL|pluripotent|induced|\bdonor\b|\bstem\b|EBiSC|1000 Genomes|Coriell|\bLCL\b|lymphoblastoid)" p5="1000" p6="REF">(NA|GM)[0-2][0-9][0-9][0-9][0-9]</r>
 
   <!-- intact -->
-  <r p1="intact" p2="onlineWithContext" p3="intact-interactions" p4="(?i)(intact|complex)" p5="20000" p6="REF">EBI\-[0-9]+</r>
+  <r p1="intact" p2="onlineWithContext" p3="intact-interactions" p4="(?i)(intact|interaction|interactions|protein)" p5="20000" p6="REF">EBI\-[0-9]+</r>
+  
    <!-- MINT -->
   <r p1="mint" p2="onlineWithContext" p3="mint" p4="(?i)(MINT|molecular interaction database|interactions|interaction)" p5="20000" p6="REF">MINT\-[0-9]+|IM\-[0-9]+</r>
 
   <!-- interpro -->
   <r p1="interpro" p2="onlineWithContext" p3="interpro" p4="(?i)(interpro|domain|family|motif|accession)" p5="20000" p6="REF">[iI][pP][rR][0-9][0-9][0-9][0-9][0-9][0-9]</r>
 
-  <!-- 21/07/2016 Metabolights added -->
-  <!-- metabolights -->
+  <!-- Metabolights -->
   <r p1="metabolights" p2="onlineWithContext" p3="metabolights" p4="(?i)(metabolights|accession|repository)" p5="20000" p6="REF">MTBLS[0-9]+</r>
-
 
   <!-- pdb -->
   <r p1="pdb" p2="onlineWithContext" p3="pdbe" p4="(?i)(pdb|(?:protein +data *bank)|accession|structure|accession|domain)" p5="20000" p6="REF">[0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]</r>
 
   <!-- pfam -->
   <r p1="pfam" p2="onlineWithContext" p3="pfam" p4="(?i)(pfam|domain|family|accession|motif)" p5="20000" p6="REF">PF(AM)?[0-9][0-9][0-9][0-9][0-9]</r>
-  <!--r p1="pfam" p2="cachedWithContext" p3="pfam" p4="(?i)(pfam)" p5="20000" p6="REF">PF(AM)?[0-9][0-9][0-9][0-9][0-9]</r-->
 
   <!-- pride, pxd -->
   <r p1="pxd" p2="onlineWithContext" p3="pride" p4="(?i)(pxd|proteomexchange|pride|dataset|accession|repository)" p5="20000" p6="REF">(R)?PXD[0-9][0-9][0-9][0-9][0-9][0-9]</r>
 
   <!-- N reactome -->
-  <r p1="reactome" p2="onlineWithContext" p3="reactome" p4="" p5="20000" p6="REF">R\-HSA\-[0-9]+</r>
+  <r p1="reactome" p2="onlineWithContext" p3="reactome" p4="(?i)(biological|regulatory|pathway|pathways|database)" p5="20000" p6="REF">R\-HSA\-[0-9]+</r>
 
   <!-- N rfam Y -->
-  <r p1="rfam" p2="onlineWithContext" p3="rfam" p4="" p5="20000" p6="REF">RF[0-9][0-9][0-9][0-9][0-9]</r>
+  <r p1="rfam" p2="online" p3="rfam" p4="" p5="" p6="REF">RF[0-9][0-9][0-9][0-9][0-9]</r>
 
   <!-- N rnacentral -->
-  <r p1="rnacentral" p2="onlineWithContext" p3="rnacentral" p4="" p5="20000" p6="REF">URS[0-9A-Z]+_[0-9]+</r>
+  <r p1="rnacentral" p2="online" p3="rnacentral" p4="" p5="" p6="REF">URS[0-9A-Z]+_[0-9]+</r>
 
-   <!-- sprot -->
-  <!-- <r p1="uniprot" p2="online" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession|protein)" p5="20000" p6="REF">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([.][0-9]+)?</r> -->
-  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession(s)?|Locus|GenBank|genome|sequence(s)?|protein|trembl|uniparc|uniref|uniprotkb|Acc.No|Acc. No)" p5="20000" p6="REF">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([-][0-9]+)?</r>
-  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession(s)?|Locus|GenBank|genome|sequence(s)?|protein|trembl|uniparc|uniref|uniprotkb|Acc.No|Acc. No)" p5="20000" p6="REF">UPI[A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9]</r>
-
-  <!-- N vectorbase -->
-
-  <!-- N workbase -->
+   <!-- uniprot -->
+  <r p1="uniprot" p2="onlineWithContext" p3="uniprot" p4="(?i)(swiss-prot|sprot|uniprot|swiss prot|accession(s)?|Locus|GenBank|genome|sequence(s)?|protein|trembl|uniparc|uniprotkb|Acc.No|Acc. No)" p5="20000" p6="REF">([a-nr-zA-NR-Z][0-9][a-zA-Z][a-zA-Z0-9][a-zA-Z0-9][0-9]|[opqOPQ][0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][0-9])([-][0-9]+)?</r>
+  <r p1="uniparc" p2="onlineWithContext" p3="" p4="(?i)(uniprot|accession(s)?|Locus|sequence(s)?|protein|uniparc|Acc.No|Acc. No)" p5="20000" p6="REF">UPI[A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9][A-F0-9]</r>
 
 
   <!-- external resources -->
-
+  
+  <!-- EBiSC -->
   <r p1="ebisc" p2="onlineWithContext" p3="" p4="(\bcell\b|sample|iPSC|iPSCs|iPS|fibroblast|fibroblasts|QTL|eQTL|pluripotent|induced|\bdonor\b|\bstem\b|EBiSC|1000 Genomes|Coriell|\bLCL\b|lymphoblastoid)" p5="20000" p6="REF">[A-Z][A-Z]+i[0-9][0-9][0-9]\-[A-Z]</r>
-  <!--r p1="ebisc" p2="contextOnly" p3="" p4="(\bcell\b|sample|iPSC|iPSCs|iPS|fibroblast|fibroblasts|QTL|eQTL|pluripotent|induced|\bdonor\b|\bstem\b|EBiSC|1000 Genomes|Coriell|\bLCL\b|lymphoblastoid)" p5="1000" p6="REF">[A-Z][A-Z]+i[0-9][0-9][0-9]\-[A-Z]</r-->
 
+  <!-- HIPSCI -->
   <r p1="hipsci" p2="onlineWithContext" p3="" p4="(\bcell\b|sample|iPSC|iPSCs|iPS|fibroblast|fibroblasts|QTL|eQTL|pluripotent|induced|\bdonor\b|\bstem\b|EBiSC|1000 Genomes|Coriell|\bLCL\b|lymphoblastoid)" p5="20000" p6="REF">HPSI[0-9][0-9][0-9][0-9](i|pf)\-[a-z]+_[0-9]+</r>
 
   <!-- omim -->
@@ -161,11 +125,9 @@
 
   <!-- refseq -->
   <r p1="refseq" p2="onlineWithContext" p3="" p4="(?i)(refseq|genbank|accession|sequence)" p5="20000" p6="REF">(AC|AP|NC|NG|NM|NP|NR|NT|NW|NZ|XM|XP|XR|YP|ZP|NS)_([A-Z][A-Z][A-Z][A-Z])*[0-9][0-9][0-9][0-9][0-9][0-9][0-9]?[0-9]?[0-9]?([.][0-9]+)?</r>
-  <!--r p1="refseq" p2="contextOnly" p3="" p4="(?i)(refseq|genbank|accession|sequence)" p5="20000" p6="REF">(AC|AP|NC|NG|NM|NP|NR|NT|NW|NZ|XM|XP|XR|YP|ZP|NS)_([A-Z][A-Z][A-Z][A-Z])*[0-9][0-9][0-9][0-9][0-9][0-9][0-9]?[0-9]?[0-9]?([.][0-9]+)?</r-->
 
   <!-- refsnp -->
-  <!--r p1="refsnp" p2="contextOnly" p3="" p4="(?i)(snps*)" p5="20000" p6="REF">rs[0-9][0-9][0-9][0-9][0-9][0-9]?[0-9]?[0-9]?[0-9]?</r-->
-  <r p1="refsnp" p2="onlineWithContext" p3="" p4="(?i)(allele|model|multivariate|polymorphism|locus|loci|haplotype|genotype|variant|chromosome|SNPs|snp|snp(s)*)" p5="20000" p6="REF">rs[0-9][0-9][0-9][0-9][0-9][0-9]?[0-9]?[0-9]?[0-9]?</r>
+  <r p1="refsnp" p2="onlineWithContext" p3="" p4="(?i)(allele|model|multivariate|polymorphism|locus|loci|haplotype|genotype|variant|chromosome|SNPs|snp|snp(s)*)" p5="20000" p6="REF">[rs]s[0-9][0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?</r>
  
   <!-- doi -->
   <r p1="doi" p2="onlineWithContext" p3="doi" p4="(?i)(doi|repository)" p5="20000">10\.[0-9][0-9][0-9][0-9]+/[^ ()\"<>]+</r>
@@ -173,13 +135,13 @@
   <!-- rrid -->
   <r p1="rrid" p2="online" p3="" p4="" p5="" p6="REF">RRID:AB_[0-9][0-9][0-9][0-9][0-9][0-9][0-9]+</r>
   <r p1="rrid" p2="online" p3="" p4="" p5="" p6="REF">RRID:SCR_[0-9][0-9][0-9][0-9][0-9][0-9]</r>
-  <r p1="rrid" p2="online" p3="" p4="" p5="" p6="REF">RRID:CVCL_[0-9][0-9][0-9][0-9]</r>
+  <r p1="rrid" p2="online" p3="" p4="" p5="" p6="REF">RRID:CVCL_[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]</r>
 
   <!-- bioproject -->
   <r p1="bioproject" p2="onlineWithContext" p3="project" p4="(?i)(bioproject|accession|archive)" p5="20000" p6="REF">PRJ[DEN][A-Z][0-9]+</r> 
 
   <!-- gca -->
-  <r p1="gca" p2="onlineWithContext" p3="genome_assembly" p4="" p5="20000" p6="REF">GCA_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]([.][0-9]+)?</r>
+  <r p1="gca" p2="online" p3="genome_assembly" p4="" p5="" p6="REF">GCA_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]([.][0-9]+)?</r>
 
   <!-- treefam -->
   <r p1="treefam" p2="onlineWithContext" p3="treefam" p4="(?i)(treefam|tree|family|accession|dendrogram)" p5="20000" p6="REF">TF[0-9][0-9][0-9][0-9][0-9][0-9]</r>

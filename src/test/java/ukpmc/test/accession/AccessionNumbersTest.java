@@ -27,14 +27,15 @@ public class AccessionNumbersTest {
 	public void testOnlineValidationPDBe() {
 		testAccessionNumberOnlineValidation("pdb","pdbe","3VI4",true);
 		testAccessionNumberOnlineValidation("pdb","pdbe","5AAA",false);
-		testAccessionNumberOnlineValidation("pdb","pdbe","5JHM",true); //it should be valid
+		testAccessionNumberOnlineValidation("pdb","pdbe","5JHM",true); //it should be valid (EBI search problem that it is not uptodate with PDB data)
 		
 	}
 	
 	@Test
 	public void testOnlineValidationArrayExpress() {
 		testAccessionNumberOnlineValidation("arrayexpress", "geneExpression","E-MTAB-6937",true);
-		testAccessionNumberOnlineValidation("arrayexpress", "geneExpression","E-MTAB-6911",false);
+		testAccessionNumberOnlineValidation("arrayexpress", "geneExpression","E-MTAB-6911",true);
+		testAccessionNumberOnlineValidation("arrayexpress", "geneExpression","E-MTAB-0000",false);
 		
 	}
 	
@@ -51,8 +52,19 @@ public class AccessionNumbersTest {
 	}
 	
 	@Test
+	public void testOnlineValidationComplexPortal() {
+		
+		testAccessionNumberOnlineValidationResponseCode("complexportal","intact-complexes","CPX-2267",true);
+		testAccessionNumberOnlineValidationResponseCode("complexportal","intact-complexes","CPX-2158",true);
+		testAccessionNumberOnlineValidationResponseCode("complexportal","intact-complexes","CPX-0000",false);
+		
+	}
+	
+	@Test
 	public void testOnlineValidationBiosamples() {
 		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMN06251630",true);
+		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMEA2397676",true);
+		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMD00005257",true);
 		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMD09010125",false);
 	}
 	
@@ -63,9 +75,7 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidationBioStudies("biostudies","biostudies","S-DIXA-012",true);
 		testAccessionNumberOnlineValidationBioStudies("biostudies","biostudies","S-EPMC4704494",true);
 		testAccessionNumberOnlineValidationBioStudies("biostudies","biostudies","S-EPMC3044716",true);
-		testAccessionNumberOnlineValidationBioStudies("biostudies","biostudies","S-EPMC2485412aa",false);
-		//assertTrue("No validation for BioStudies", false);
-		
+		testAccessionNumberOnlineValidationBioStudies("biostudies","biostudies","S-EPMC0000000",false);
 	}
 
 	@Test
@@ -73,7 +83,7 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("cath","cath","3.20.20.150",true);
 		testAccessionNumberOnlineValidation("cath","cath","2.60.120.10",true);
 		testAccessionNumberOnlineValidation("cath","cath","3.40.140.10",true);
-		testAccessionNumberOnlineValidation("cath","cath","0.00.000.00",false);
+		testAccessionNumberOnlineValidation("cath","cath","3.00.000.00",false);
 		//assertTrue("Cath db validation is missing", false);
 	}
 	
@@ -95,15 +105,15 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("chembl","chembl-molecule","CHEMBL53463",true);
 		testAccessionNumberOnlineValidation("chembl","chembl-molecule","CHEMBL941",true);
 		testAccessionNumberOnlineValidation("chembl","chembl-molecule","CHEMBL3782011111",false);
-		testAccessionNumberOnlineValidation("chembl","chembl-molecule","CHEMBL1237042",true);//false positive to fix
+		testAccessionNumberOnlineValidation("chembl","chembl-molecule","CHEMBL1237042",false);
 	}
 	
 	@Test
 	public void testOnlineValidationMetagenomics() {
 		testAccessionNumberOnlineValidation("metagenomics","metagenomics_samples","SRS259434",true); 
 		testAccessionNumberOnlineValidation("metagenomics","metagenomics_samples","SRS000001",false);
-		testAccessionNumberOnlineValidation("metagenomics","metagenomics_samples","SRS355925",true); //false positive to fix
-		testAccessionNumberOnlineValidation("metagenomics","metagenomics_samples","SRS355926",true); //false positive to fix
+		testAccessionNumberOnlineValidation("metagenomics","metagenomics_samples","SRS355925",false); 
+		testAccessionNumberOnlineValidation("metagenomics","metagenomics_samples","SRS355926",false); 
 		
 	}
 	
@@ -120,10 +130,12 @@ public class AccessionNumbersTest {
 	@Test
 	public void testOnlineValidationEga() {
 		
-		testAccessionNumberOnlineValidation("ega","ega","EGAS00000000132",true);
-		testAccessionNumberOnlineValidation("ega","ega","EGAS00001002197",true);
-		testAccessionNumberOnlineValidation("ega","ega","EGAX00010001403",false);
-		testAccessionNumberOnlineValidation("ega","ega","EGAD00010001403",true); //false positive to fix
+		testAccessionNumberOnlineValidation("ega.study","ega","EGAS00000000132",true);
+		testAccessionNumberOnlineValidation("ega.study","ega","EGAS00000000000",false);
+		testAccessionNumberOnlineValidation("ega.dataset","ega","EGAD00000000001",true);
+		testAccessionNumberOnlineValidation("ega.dataset","ega","EGAD00000000000",false);
+		testAccessionNumberOnlineValidation("ega.dac","ega","EGAC00000000001",true);
+		testAccessionNumberOnlineValidation("ega.dac","ega","EGAC00000000000",false);
 	}
 	
 	@Test
@@ -143,29 +155,37 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationGen() {
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","L16912",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","MF033306",true);
-		testAccessionNumberOnlineValidation("gen","nucleotideSequences","MF033344",true);
-		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ADE89399",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","SRX658505",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ERP108822",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ERS1545050",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","AAR04849",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","SRR3998997",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","SRA389707",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","CZSB02000000",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ERZ486920",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","MF000000",false);
 	}
 	
 	@Test
 	public void testOnlineValidationEnsembl() {
-		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSSSCT00000014289",false);
-		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSBTAG00000016573",true);
-		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSBTAG00000021523",true);
-		testAccessionNumberOnlineValidation("ensembl","ensemblRoot","ENSBTAG00000000000",false);
+		testAccessionNumberOnlineValidationResponseCode("ensembl","ensemblRoot","ENSSSCT00000014289",true);
+		testAccessionNumberOnlineValidationResponseCode("ensembl","ensemblRoot","ENSBTAG00000016573",true);
+		testAccessionNumberOnlineValidationResponseCode("ensembl","ensemblRoot","ENSBTAG00000021523",true);
+		testAccessionNumberOnlineValidationResponseCode("ensembl","ensemblRoot","ENST00000252723",true);
+		testAccessionNumberOnlineValidationResponseCode("ensembl","ensemblRoot","ENSBTAG00000000000",false);
 		
 	}
 	
-	@Test
+	/**@Test
 	public void testOnlineValidationEva() {
 		testAccessionNumberOnlineValidationNcbi("eva","snp","rs3852144",true);
 		testAccessionNumberOnlineValidationNcbi("eva","snp","ss1",true);
 		testAccessionNumberOnlineValidationNcbi("eva","snp","rs848",true);
 		testAccessionNumberOnlineValidationNcbi("eva","snp","rs7412",true); 
 		testAccessionNumberOnlineValidationNcbi("eva","snp","ss0",false);
-	}
+	}*/
 	
 	@Test
 	public void testOnlineValidationGo() {
@@ -185,6 +205,7 @@ public class AccessionNumbersTest {
 	//TO CHANGE with external
 	@Test
 	public void testOnlineValidationHpa() {
+		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","CAB016307",true); 
 		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA007415",true);
 		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA001893",true);   
 		testAccessionNumberOnlineValidationHpa("hpa","proteinatlas","HPA037646",true);   
@@ -193,10 +214,10 @@ public class AccessionNumbersTest {
 		
 	}
 	
-	@Test
+	/**@Test
 	public void testOnlineValidationIgsr() {
 		assertTrue("Igsr is context only in dictionary",false);
-	}
+	}*/
 	
 	@Test
 	public void testOnlineValidationIntact() {
@@ -250,7 +271,7 @@ public class AccessionNumbersTest {
 	public void testOnlineValidationPride() {
 		testAccessionNumberOnlineValidation("pxd","pride","PXD009799",true); 
 		testAccessionNumberOnlineValidation("pxd","pride","PXD000000",false);
-		testAccessionNumberOnlineValidation("pxd","pride","PXD009809",true); //false positive to fix
+		testAccessionNumberOnlineValidation("pxd","pride","PXD009809",true);
 	}
 	
 	@Test
@@ -281,17 +302,23 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("uniprot","uniprot","C4JC09",true);
 		testAccessionNumberOnlineValidation("uniprot","uniprot","K7TK04",true);
 		testAccessionNumberOnlineValidation("uniprot","uniprot","B4FYF5",true);
-		testAccessionNumberOnlineValidation("uniprot","uniprot","E3UJZ2",true);
 		testAccessionNumberOnlineValidation("uniprot","uniprot","P29375",true);
 		testAccessionNumberOnlineValidation("uniprot","uniprot","P53BP2",false);
+	}
+	
+	@Test
+	public void testOnlineValidationUniparc() {
+		
+		testAccessionNumberOnlineValidationResponseCode("uniparc","","UPI00026E6E87",true);
+		testAccessionNumberOnlineValidationResponseCode("uniparc","","UPI0000000000",false);
 	}
 	
 	@Test
 	public void testOnlineValidationEbisc() {
 		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","STBCi044-A",true);
 		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","EURACi000-A",false);
-		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","HIHCNi002-A",true); //false positive to fix
-		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","EURACi004-A",true); //false positive to fix
+		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","HIHCNi002-A",false); //false positive to fix
+		testAccessionNumberOnlineValidationResponseCode("ebisc","ebisc","EURACi004-A",false); //false positive to fix
 	}
 	
 	@Test
@@ -319,14 +346,15 @@ public class AccessionNumbersTest {
 	public void testOnlineValidationRefSeq() {	
 		testAccessionNumberOnlineValidationNcbi("refseq","nucleotide","NM_001101.4",true);
 		testAccessionNumberOnlineValidationNcbi("refseq","nucleotide","NM_000000.0",false);
-		testAccessionNumberOnlineValidationNcbi("refseq","nucleotide","XP_748685.1",true); // false positive to fix
+		testAccessionNumberOnlineValidationNcbi("refseq","nucleotide","XP_748685.1",false); // false positive to fix
 		
 	}
 	
 	@Test
 	public void testOnlineValidationRefSnp() {	
-		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs3852144",true);
+		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1",true);
+		testAccessionNumberOnlineValidationNcbi("refsnp","snp","ss1",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs570877",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1041983",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs000000",false);
@@ -349,6 +377,7 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:SCR_002798",true);
 		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:AB_2532057",true);
 		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:SCR_002010",true);
+		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:CVCL_ST66",true);
 		testAccessionNumberOnlineValidationResponseCode("rrid","rrid","RRID:SCR_000000",false);
 		
 	}
@@ -377,11 +406,6 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("treefam","treefam","TF332117",true);
 		testAccessionNumberOnlineValidation("treefam","treefam","TF000000",false);
 	}
-	
-	@Test
-	public void testOnlineValidationEudract() {	
-		assertTrue("Eudract On line validation not implemented because it is context only in dictionary. Should we implement it?",false);
-	}
 
 	@Test
 	public void testOnlineValidationNct() {	
@@ -401,16 +425,14 @@ public class AccessionNumbersTest {
 	@Test
 	public void testOnlineValidationGeo() {	
 		testAccessionNumberOnlineValidationNcbi("geo","gds","GSE26680",true);
-		testAccessionNumberOnlineValidationNcbi("geo","gds","GSE54825",true);
+		testAccessionNumberOnlineValidationNcbi("geo","gds","GDS1234",true);
 		testAccessionNumberOnlineValidationNcbi("geo","gds","GPL3213",true);
+		testAccessionNumberOnlineValidationNcbi("geo","gds","GSM26680",true);
 		testAccessionNumberOnlineValidationNcbi("geo","gds","GPL0000",false);
 	}
 	
-
-
-	
 	private void testAccessionNumberOnlineValidation(String db, String domain, String id, boolean outcomeExpected) {
-		if (("gca").equalsIgnoreCase(db)==false){
+		if ((("gca").equalsIgnoreCase(db)==false) && (("gen".equalsIgnoreCase(db) && id.matches("^GCA_.+"))==false)){
 			id = ar.normalizeID(db, id);
 		}
 		if (outcomeExpected) {
@@ -465,9 +487,9 @@ public class AccessionNumbersTest {
     
     private void testAccessionNumberOnlineValidationResponseCode(String db, String domain, String id, boolean outcomeExpected) {
     	if (outcomeExpected) {
-			assertTrue(String.format("Accession number %s of domain %s is NOT valid!", id, domain), responseCoder.isValid(domain, id));
+			assertTrue(String.format("Accession number %s of domain %s is NOT valid!", id, domain), responseCoder.isValid(db, id));
 		}else {
-			assertFalse(String.format("Accession number %s of domain %s is valid!", id, domain), responseCoder.isValid(domain, id));
+			assertFalse(String.format("Accession number %s of domain %s is valid!", id, domain), responseCoder.isValid(db, id));
 		}
 		
 	}
