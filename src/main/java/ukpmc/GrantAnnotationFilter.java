@@ -17,6 +17,8 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import monq.jfa.AbstractFaAction;
 import monq.jfa.Dfa;
 import monq.jfa.DfaRun;
@@ -63,7 +65,7 @@ public class GrantAnnotationFilter {
 				Map <String, String> map = Xml.splitElement(yytext, start);
 				String content = map.get(Xml.CONTENT);
 				dfa_content = content;
-				actual_sentence = extractNoramlSentence(dfa_content);
+				actual_sentence = extractNoramlSentence();
 
 				String newoutput;
 
@@ -116,6 +118,10 @@ public class GrantAnnotationFilter {
 
 				String content =  m.content().replace("[", "").replace("]", ""); //sometimes MWt is mining grant ids with [ like [G45. to avoid that remove [ in the content
 
+
+				actual_sentence = StringEscapeUtils.unescapeXml(actual_sentence);
+				String context = StringEscapeUtils.unescapeXml(m.ctx());
+				
 				if(validator.checkSpecialCharsForPattern(actual_sentence, content)) {//check for the context
 					//int size = actual_sentence.contains("NC3Rs") ? 50 : m.wsize();
 					String textBeforeEntity = getTextBeforeEntity( m.wsize(),content);
@@ -124,12 +130,12 @@ public class GrantAnnotationFilter {
 					if ("noval".equals(m.valMethod())) {
 						isValid = true;
 					}  else if ("context".equals(m.valMethod())) {
-						if ( validator.isContextExist(textBeforeEntity, textBeforeEntityForAbbr, m.ctx(),m.abbrcontext(),m.negate(),m.db())) {
+						if ( validator.isContextExist(textBeforeEntity, textBeforeEntityForAbbr, context,m.abbrcontext(),m.negate(),m.db())) {
 							if( validator.isConflictFunderNotExist(textBeforeEntity,m.db(),content))
 								isValid = true;
 						}else {//check if the context is after pattern							
 							String textAfterEntity = getTextAfterEntity(content);
-							isValid = validator.isContextAfterPattern(textAfterEntity, m.ctx());													
+							isValid = validator.isContextAfterPattern(textAfterEntity, context);													
 						}
 					} 
 				}else {
@@ -137,6 +143,7 @@ public class GrantAnnotationFilter {
 				}
 
 				if (isValid ) {
+					actual_sentence = StringEscapeUtils.escapeXml(actual_sentence);
 					String tagged = "<" + m.tagName() +" abbr=\"" + m.db() + "\" id=\"" + content +  "\" name=\"" + m.domain() + "\" sent=\"" + actual_sentence +"\">"+ content+ "</" + m.tagName() + ">";
 					LOGGER.info(tagged);
 					yytext.replace(start, yytext.length(), tagged);	
@@ -171,7 +178,7 @@ public class GrantAnnotationFilter {
 	 * m.content() is a sentence before context with annotated tags like <plain>, <FUND or <Z:acc etc. 
 	 * So we need fined sentence to avoid false positives and also need to reduce the sentence length for window size. If you have those tags, window size doesnt make any sense.
 	 */
-	private  static String extractNoramlSentence(String sentPlain) {
+	private  static String extractNoramlSentence() {
 		String cleanPlainTag = dfa_content.replace( "<plain>","").replace("</plain>","");
 		String cleanZACCTags = cleanPlainTag.replaceAll("<FUND(.+?)>","").replaceAll("</FUND>", "");
 		return cleanZACCTags;
