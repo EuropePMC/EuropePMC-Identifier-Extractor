@@ -53,6 +53,8 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationComplexPortal() {
+		
+		testAccessionNumberOnlineValidationResponseCode("complexportal","intact-complexes","CPX-2267",true);
 		testAccessionNumberOnlineValidationResponseCode("complexportal","intact-complexes","CPX-2158",true);
 		testAccessionNumberOnlineValidationResponseCode("complexportal","intact-complexes","CPX-0000",false);
 		
