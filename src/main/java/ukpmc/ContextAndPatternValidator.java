@@ -16,8 +16,8 @@ public class ContextAndPatternValidator {
 
 	private static GrantIDResolver gr = new GrantIDResolver();
 	private static final String PATTERN_BOUNDARY_MATCH1 = "\\(|[|#|,|;|\\)|]|\\s|&|-";
-	private static final String PRE_PATTERN_BOUNDARY_MATCH = "no.|nr.";
-	private static final String PATTERN_BOUNDARY_MATCH = "\\(|\\)|\\[|\\]|#|,|;|\\s|&|-|_";
+	private static final String PRE_PATTERN_BOUNDARY_MATCH = "no|nr|No|Nr|no.|nr.|No.|Nr.|N°|n°|N°.|n°.";
+	private static final String PATTERN_BOUNDARY_MATCH = "\\(|\\)|\\[|\\]|#|,|;|\\s|&|-|_";//(,),[,],,,;, ,&,-,_
 	private static final String PATTERN_END_MATCH = ".|.\\s|\\).|].|\\).\\s|#.|/\\s|/\\) ";
 
 	public ContextAndPatternValidator() {
@@ -29,8 +29,8 @@ public class ContextAndPatternValidator {
 	public boolean isContextExist(String textBeforeEntity, String textBeforeEntityForAbbr, String fullContext, String abbrContext, String negateContext, String db) {
 		Boolean hasFunderName = false; Boolean hasNegateContext = false;
 
-		if(negateContext != null && !negateContext.isEmpty()) {			
-			hasNegateContext = findPattern(negateContext, textBeforeEntity);	
+		if(negateContext != null && !negateContext.isEmpty()) {	
+			hasNegateContext = findPattern(negateContext, textBeforeEntity);
 		}
 		if(hasNegateContext) {
 			return false;
@@ -40,12 +40,11 @@ public class ContextAndPatternValidator {
 			}else {
 				hasFunderName = findPattern(fullContext, textBeforeEntity);
 			}
-
 			if(!hasFunderName && abbrContext != null && !abbrContext.isEmpty()) {	
 				hasFunderName = findPattern(abbrContext, textBeforeEntityForAbbr);				
-			}	
-			
+			}				
 		}
+
 		return hasFunderName;
 	}
 
@@ -150,8 +149,7 @@ public class ContextAndPatternValidator {
 
 			validPattern = checkSpecialChar(onePrefixSuffixPattern,onePrefixTwoSuffixPattern, ((ctxIndex+ctxLength) < sentLength));
 
-
-			boolean validPattern2 = checkSpecialCharsForPattern(sent,cntx);
+			//boolean validPattern2 = checkSpecialCharsForPattern(sent,cntx);
 
 		}catch(Exception e) {
 			LOGGER.log(Level.SEVERE, " something wrong with sent=" + sent + "context= " +cntx , e);
@@ -233,11 +231,13 @@ public class ContextAndPatternValidator {
 		String s = "This work was supported by grants from The Wellcome Trust (076078/Z/04/Z and 07664/Z/05/Z, PK).".substring(59, 73);
 		//System.out.println(s);
 		//System.out.println(cv.isValidPattern("DE-AC02-06CH11357.", "DE-AC02-06"));
-		System.out.println(cv.isValidPattern("Acknowledgements This study is funded by the Wellcome Trust, UK, HCPC Latin American Centres of Excellence Programme (ref 072405/Z/03/Z).(", "072405/Z/03/Z"));
-		System.out.println("072405/Z/03/Z).".endsWith(")."));
-		System.out.println("072405/Z/03/Z).".indexOf("072"));
+		//System.out.println(cv.isValidPattern("Acknowledgements This study is funded by the Wellcome Trust, UK, HCPC Latin American Centres of Excellence Programme (ref 072405/Z/03/Z).(", "072405/Z/03/Z"));
+		//System.out.println("072405/Z/03/Z).".endsWith(")."));
+		//System.out.println("072405/Z/03/Z).".indexOf("072"));
 		int a ="072".length(); 
-		System.out.println(cv.isValidPattern("This work was supported by the Wellcome Trust [073109/Z/03/Z].", "073109/Z/03/Z"));
+		//System.out.println(cv.isValidPattern("This work was supported by the Wellcome Trust [073109/Z/03/Z].", "073109/Z/03/Z"));
+		System.out.println(cv.isValidPattern("European Research Council Starting grant (640004).", "640004"));
+		
 
 		//System.out.println("072405/Z/03/Z).".charAt(index), (0+a)+1));
 	}
