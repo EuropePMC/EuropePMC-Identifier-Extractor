@@ -155,6 +155,7 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationGen() {
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","FUXG01000000",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","L16912",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","MF033306",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","SRX658505",true);
@@ -166,6 +167,7 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","CZSB02000000",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ERZ486920",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","MF000000",false);
+		 
 	}
 	
 	@Test
