@@ -4,6 +4,8 @@
 bigger_than = ARGV[0].to_i
 # bigger_than = 2
 
+blacklits_terms = ["can","was","sensitivity","sensitive","fed","men","gave","allergic","mono","fracture","fractures","arms","burn","chi","sensitivities","era","pad"]
+
 # print head
 puts <<HEAD
 <mwt>
@@ -55,6 +57,8 @@ STDIN.readlines.drop(1).each do |line|
   elsif (id == "EFO_0000545" and term == "sterile") then
     ;
   elsif (id == "EFO_0001365" and term == "Amended") then
+    ;
+  elsif (blacklits_terms.include? term) then
     ;
   else
     puts ("  <t p1=\"#{id}\" p2=\"#{cat}\">#{term.strip}</t>") if (term.size > bigger_than)
