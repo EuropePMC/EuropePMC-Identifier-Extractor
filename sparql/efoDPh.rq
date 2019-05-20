@@ -12,7 +12,7 @@ WHERE {
   {?subject rdfs:subClassOf+ <http://www.ebi.ac.uk/efo/EFO_0000651> . BIND("p" AS ?type)}
 
 
-  {?subject <http://www.ebi.ac.uk/efo/alternative_term> ?name . BIND ("1" AS ?flag) .} UNION
+  {?subject <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> ?name . BIND ("1" AS ?flag) .} UNION
   {?subject rdfs:label ?name . BIND ("0" AS ?flag) .}
   FILTER (isLiteral(?name))
   FILTER (STRLEN(?name) > 2)
