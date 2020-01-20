@@ -26,8 +26,9 @@ public class AccessionNumbersTest {
 	@Test
 	public void testOnlineValidationPDBe() {
 		testAccessionNumberOnlineValidation("pdb","pdbe","3VI4",true);
-		testAccessionNumberOnlineValidation("pdb","pdbe","5AAA",false);
-		testAccessionNumberOnlineValidation("pdb","pdbe","5JHM",true); //it should be valid (EBI search problem that it is not uptodate with PDB data)
+		testAccessionNumberOnlineValidation("pdb","pdbe","5AAA",true);
+		testAccessionNumberOnlineValidation("pdb","pdbe","5JHM",true);
+		testAccessionNumberOnlineValidation("pdb","pdbe","5BBB",false);
 		
 	}
 	
@@ -165,7 +166,7 @@ public class AccessionNumbersTest {
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","SRR3998997",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","SRA389707",true);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","CZSB02000000",true);
-		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ERZ486920",true);
+		testAccessionNumberOnlineValidation("gen","nucleotideSequences","ERZ486920",false);
 		testAccessionNumberOnlineValidation("gen","nucleotideSequences","MF000000",false);
 		 
 	}
@@ -356,7 +357,7 @@ public class AccessionNumbersTest {
 	public void testOnlineValidationRefSnp() {	
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs3852144",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1",true);
-		testAccessionNumberOnlineValidationNcbi("refsnp","snp","ss1",true);
+		testAccessionNumberOnlineValidationNcbi("refsnp","snp","ss1",false);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs570877",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs1041983",true);
 		testAccessionNumberOnlineValidationNcbi("refsnp","snp","rs000000",false);
@@ -368,7 +369,7 @@ public class AccessionNumbersTest {
 	public void testOnlineValidationDoi() {	
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.6084/m9.figshare.6827219.v3",true);
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.6084/m9.figshare.c.4202669",true);
-		testAccessionNumberOnlineValidationDataCite("doi","doi","10.5195/JMLA.2018.256",true);
+		testAccessionNumberOnlineValidationDataCite("doi","doi","10.5195/JMLA.2018.256",false);
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.5195/JMLA.0000.000",false);
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.0000/m9.figshare.c.0000000",false);
 		

@@ -184,8 +184,6 @@ public class AccessionNumberFilterTest {
 		testDBTagging("gen","SRR3998997","SRR0000000","run");
 		testDBTagging("gen","SRA389707","SRA000000","submission");
 		testDBTagging("gen","CZSB02000000","CZSB00000000","assembled");
-		testDBTagging("gen","ERZ486920","ERZ000000","analysis");
-		//testDBTagging("gen","TI34678","ERZ000000","trace");	
 	}
 	
 	@Test
@@ -250,7 +248,7 @@ public class AccessionNumberFilterTest {
 	
 	@Test
 	public void testPDB() {
-		testDBTagging("pdb","3VI4","5AAA","structure");
+		testDBTagging("pdb","3VI4","5BBB","structure");
 	}
 	
 	@Test
@@ -271,12 +269,12 @@ public class AccessionNumberFilterTest {
 	
 	@Test
 	public void testRfam() {
-		testDBTagging("rfam","RF01820","RF00000","family");
+		testDBTagging("rfam","RF01820","RF00000",null);
 	}
 	
 	@Test
 	public void testRnacentral() {
-		testDBTagging("rnacentral","URS00001DC04F_9606","URS00001DC04F_0000","sequences");
+		testDBTagging("rnacentral","URS00001DC04F_9606","URS00001DC04F_0000",null);
 	}
 	
 	@Test
@@ -313,7 +311,6 @@ public class AccessionNumberFilterTest {
 	@Test
 	public void testRefSnp() {
 		testDBTagging("refsnp","rs1041983","rs000000","allele");
-		testDBTagging("refsnp","ss1","ss0","model");
 	}
 	
 	@Test
@@ -368,7 +365,7 @@ public class AccessionNumberFilterTest {
 		        "<SENT sid=\"1\"><plain>"+context+" "+wrongId+"</plain></SENT><SENT sid=\"2\"><plain>no tagging "+wrongId+"</plain></SENT>";
 		
 		String outputExpected="";
-		boolean contextChecked="".equalsIgnoreCase(context)==false;
+		boolean contextChecked=("".equalsIgnoreCase(context)==false) && context!=null;
 		if (contextChecked) {
 
 			outputExpected =  "<SecTag type=\"REF\"><SENT sid=\"1\"><plain>"+context+" "+validId+"</plain></SENT><SENT sid=\"2\"><plain>no tagging "+validId+"</plain></SENT></SecTag>"+

@@ -514,18 +514,20 @@ public class ResourceNameFileterTest {
 
 		try {
 			File testFile = new File("text.txt");
+			File testFileFinal = new File("text_final.txt");
 			String patternmapped =  patternMatch(input, RESOURCE_DICTIONARY);
 			
-			
 			InputStream in = new ByteArrayInputStream(patternmapped.getBytes("UTF-8"));
-			FileOutputStream out = new FileOutputStream(testFile);
-			PrintStream outpw = new PrintStream(out);
-			
-			AnnotationFilter annotationFilter = new AnnotationFilter(in,outpw);
+			PrintStream outpw = new PrintStream(new FileOutputStream(testFile));
+			AnnotationFilter annotationFilter = new AnnotationFilter(in,outpw, true);
 			
 			annotationFilter.run();		
 			
-			String sent = getFileContent(new FileInputStream(testFile));
+			outpw = new PrintStream(new FileOutputStream(testFileFinal));
+			annotationFilter = new AnnotationFilter(new FileInputStream(testFile),outpw, false);
+		    annotationFilter.run();		
+			
+			String sent = getFileContent(new FileInputStream(testFileFinal));
 			System.out.println(sent);
 			System.out.println(output);
 			

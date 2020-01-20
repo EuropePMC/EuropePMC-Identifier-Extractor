@@ -1,4 +1,22 @@
-target/
-.idea/
+/.settings/
+/bin/
 /binTarget/
 /Output/
+/classes/
+/project/
+# dist directory for webservices
+/dist/
+# Eclipse Core
+#.project
+# JDT-specific (Eclipse Java Development Tools)
+#.classpath
+# Locally stored "Eclipse launch configurations"
+*.launch
+# Locally stored "MyEclipse Hibernate configurations"
+.myhibernatedata
+# Locally stored "MyEclipse Hibernate configurations"
+.mymetadata
+# IDE related file
+.metadata
+# sbteclipse plugin
+/target/
