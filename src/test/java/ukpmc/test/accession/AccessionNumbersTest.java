@@ -326,6 +326,7 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationHipsci() {
+		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0114i-kolf_2",true);
 		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0114i-eipl_1",true);
 		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0713i-virz_2",true);
 		testAccessionNumberOnlineValidationHipsci("hipsci","hipsci","HPSI0713i-darw_1",true);
@@ -367,8 +368,9 @@ public class AccessionNumbersTest {
 	
 	@Test
 	public void testOnlineValidationDoi() {	
-		testAccessionNumberOnlineValidationDataCite("doi","doi","10.6084/m9.figshare.6827219.v3",true);
-		testAccessionNumberOnlineValidationDataCite("doi","doi","10.6084/m9.figshare.c.4202669",true);
+		testAccessionNumberOnlineValidationDataCite("doi","doi","10.6084/m9.figshare.6827219.v3",false);
+		testAccessionNumberOnlineValidationDataCite("doi","doi","10.6084/m9.figshare.c.4202669",false);
+		testAccessionNumberOnlineValidationDataCite("doi","doi","10.5061/dryad.pk045",true);
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.5195/JMLA.2018.256",false);
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.5195/JMLA.0000.000",false);
 		testAccessionNumberOnlineValidationDataCite("doi","doi","10.0000/m9.figshare.c.0000000",false);

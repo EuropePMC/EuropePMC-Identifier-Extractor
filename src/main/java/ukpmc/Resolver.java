@@ -1,5 +1,8 @@
 package ukpmc;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.cert.X509Certificate;
@@ -73,6 +76,34 @@ public abstract class Resolver implements Resolvable {
 			System.err.println("Verified host error");
 			//AccResolver.logOutput("Failed to ignore the certificate validation  " + e.getMessage());
 		}
+	}
+    
+    
+     protected String getResponseApi(URL url) throws Exception{
+		
+		BufferedReader rd=null;
+		 StringBuilder res= new StringBuilder();
+		try{
+
+		    HttpURLConnection con = (HttpURLConnection)url.openConnection();
+		    con.setDoOutput(true);
+		    con.setRequestMethod("GET");
+		
+		    rd = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+		    String line;
+		   
+		    while ((line = rd.readLine()) != null) {
+		        res.append(line);
+		    }
+		    
+		}finally{
+			if (rd!=null){
+				rd.close();
+			}
+
+		}
+		
+		return res.toString();
 	}
 
 }

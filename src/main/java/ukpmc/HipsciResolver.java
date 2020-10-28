@@ -12,7 +12,7 @@ public class HipsciResolver extends Resolver{
 	 boolean ret=false;
 	 BufferedReader in = null;
      try{
-       URL url = new URL("http://www.hipsci.org/lines/api/cellLine/"+URLEncoder.encode(accno,"UTF-8")); 
+       URL url = new URL("https://www.hipsci.org/lines/api/cellLine/"+URLEncoder.encode(accno,"UTF-8")); 
        in = new BufferedReader(new InputStreamReader(url.openStream()));
        String line;
        while ((line = in.readLine()) != null) {

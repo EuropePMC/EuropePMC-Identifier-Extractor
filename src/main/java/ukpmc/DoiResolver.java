@@ -56,10 +56,10 @@ public class DoiResolver extends Resolver implements Resolvable {
 	  boolean ret=false;
       try {
          URL url = toURL(URLEncoder.encode(doi,"UTF-8"), HOST);
-         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-         String response = connection.getResponseMessage();
-         connection.disconnect();
-         ret=response.equals("OK");
+         
+         String responseApi = getResponseApi(url);
+         ret = responseApi!=null && responseApi.toLowerCase().contains("\"resource-type-id\":\"dataset\"");
+         
       } catch (Exception e) {
     	  ret=false;
       } 
