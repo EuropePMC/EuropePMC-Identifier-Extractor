@@ -64,8 +64,8 @@ public class AccessionNumbersTest {
 	@Test
 	public void testOnlineValidationBiosamples() {
 		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMN06251630",true);
-		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMEA2397676",true);
-		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMD00005257",true);
+		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMEA2397676",false);
+		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMD00005257",false);
 		testAccessionNumberOnlineValidation("biosample", "biosamples","SAMD09010125",false);
 	}
 	
